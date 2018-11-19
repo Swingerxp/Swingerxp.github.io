@@ -44,7 +44,6 @@
     z-index: 1; }
   .brk-sc-item-page-header__info {
     position: relative;
-    padding-top: 75px;
     padding-bottom: 151px;
     overflow: hidden; }
     @media screen and (max-width: 1230px) {

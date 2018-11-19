@@ -7,7 +7,7 @@
       }
 
       if (typeof jQuery.mbYTPlayer === 'undefined' || typeof jQuery.vimeo_player === 'undefined') {
-        console.log('Waiting for the YTPlayer library');
+        console.log('Waiting for the MBYTP library');
         setTimeout(Berserk.behaviors.parallax_video_init.attach, settings.timeout_delay, context, settings);
         return;
       }
@@ -22,8 +22,8 @@
       }
 
       setVimeoVolume();
-
-      setTimeout(function () {
+      
+      window.addEventListener('load', function () {
         $(function () {
           $('.player-yt:not(.rendered)', context).addClass("rendered").each(function () {
             $(this).YTPlayer($(this).data('options'));
@@ -63,7 +63,8 @@
               });
           });
         });
-      }, 350)
+      })
+
     }
   }
 })(jQuery);

@@ -1,6 +1,6 @@
 .brk-dashed-logo__line {
   background: url(../../img/sprite.png) 0px -22px;
-  width: 768px;
+  width: 100px;
   height: 1px; }
 
 .brk-footer {
@@ -621,3 +621,24 @@
 
 .brk-form_footer-9 .input-label {
   color: rgba(255, 255, 255, 0.4) !important; }
+
+.brk-footer-16__img-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 570px;
+  -o-object-fit: cover;
+     object-fit: cover; }
+
+.brk-footer-16__form input {
+  background-color: transparent;
+  border: none; }
+  .brk-footer-16__form input::-webkit-input-placeholder {
+    color: currentColor; }
+  .brk-footer-16__form input:-ms-input-placeholder {
+    color: currentColor; }
+  .brk-footer-16__form input::-ms-input-placeholder {
+    color: currentColor; }
+  .brk-footer-16__form input::placeholder {
+    color: currentColor; }

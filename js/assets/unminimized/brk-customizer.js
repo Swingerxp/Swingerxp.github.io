@@ -147,8 +147,8 @@
 
 		})
 	});*/
-	/* end direction */
-
+  /* end direction */
+  
 	/* options border */
 	var $optBorder 								= $('[data-brk-options-border]'),
 			$optionsBorderCheckGlobal = $optBorder.find('.brk-theme-options__check');

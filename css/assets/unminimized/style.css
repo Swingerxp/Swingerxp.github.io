@@ -31,10 +31,11 @@ body {
 
 .brk-boxed {
   background: #fff;
-  margin: 0 auto; }
-  @media (min-width: 1200px) {
+  margin: 0 auto;
+  position: relative; }
+  @media (min-width: 1230px) {
     .brk-boxed {
-      max-width: 1200px;
+      max-width: 1230px;
       box-shadow: rgba(0, 0, 0, 0.6) 0 0 18px; } }
 
 .brk-element-loading {
@@ -72,28 +73,11 @@ body {
     -webkit-transform: translate(-50%, -50%) rotate(360deg);
     transform: translate(-50%, -50%) rotate(360deg); } }
 
-/* [data-brk-library]:not(.lazyloaded) {
-   opacity: 0;
-   height: 50px;
- }
- [data-brk-library]:not(.lazyloaded) > *{
-   display: none;
- }
+[data-bg].lazyload,
+[data-bg].lazyloading {
+  background-size: auto;
+  background-position: center; }
 
-[data-brk-library] {
-  opacity: 0;
-}
-[data-brk-library]:not(.lazyloaded){
-  overflow: hidden; 
-  position: relative;
-}
-[data-brk-library].lazyloaded{
-  opacity: 1;
-}
-[data-brk-library].lazyloaded .brk-element-loading{
-  opacity: 0;
-}
-*/
 .rev-brk-brands [class*="fa-icon-"] {
   font-family: Font Awesome\ 5 Brands; }
 
@@ -1489,17 +1473,17 @@ body .main-icon {
   text-decoration: none;
   z-index: 1200;
   visibility: visible;
-  opacity: 1;
   -webkit-transform: scale(1);
           transform: scale(1);
-  -webkit-transition: 0.3s all ease;
-  transition: 0.3s all ease; }
+  -webkit-transition: \transform .3s ease;
+  transition: \transform .3s ease;
+  display: none; }
   #toTop:before {
     font-family: "Font Awesome\ 5 Free";
     content: '\f106';
     font-weight: 900;
     font-size: 26px; }
-  #toTop:hover, #toTop:focus {
+  #toTop:hover {
     color: #fff;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
@@ -1508,7 +1492,7 @@ body .main-icon {
 @media (min-width: 576px) {
   #toTop {
     right: 34px;
-    bottom: 34px; } }
+    bottom: 80px; } }
 
 /*
 // Header
@@ -2400,3 +2384,11 @@ body .main-icon {
 @media screen and (min-width: 992px) {
   .brk-img-no-max-width {
     max-width: none; } }
+
+.brk-divider-white-1 {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid #fff; }
+
+.text-transform-none {
+  text-transform: none !important; }

@@ -407,6 +407,15 @@
     margin-top: 18px;
     text-transform: uppercase;
     color: #a3aeac; }
+  .countdown__flip-2_white .count {
+    background-color: #ffffff;
+    color: var(--brand-primary); }
+    .countdown__flip-2_white .count.top {
+      border-bottom: 1px solid #fff; }
+    .countdown__flip-2_white .count.top, .countdown__flip-2_white .count.bottom {
+      background-color: #fff; }
+  .countdown__flip-2_white .label {
+    color: #fff; }
 
 .countdown__large .countdown {
   background: #fff; }

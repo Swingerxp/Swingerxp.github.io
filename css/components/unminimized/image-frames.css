@@ -222,7 +222,7 @@
   z-index: 2;
   overflow: hidden; }
   .image-popup:before {
-    content: "\f00e";
+    content: "\f067";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -269,7 +269,7 @@
   z-index: 2;
   overflow: hidden; }
   .img-figure-gradient.link > .before:before {
-    content: '+'; }
+    content: '\f067'; }
   .img-figure-gradient.popup > .before:before {
     content: '\f002';
     font-size: 20px; }
@@ -296,12 +296,12 @@
     -webkit-box-align: center;
             align-items: center;
     color: #fff;
-    font-size: 36px;
+    font-size: 22px;
     -webkit-transition: all .4s ease;
     transition: all .4s ease;
     z-index: 3; }
     .img-figure-gradient > .before:before {
-      content: '+';
+      content: '\f067';
       font-family: "Font Awesome\ 5 Free";
       font-weight: 600; }
   .img-figure-gradient > .after {
@@ -330,7 +330,7 @@ a.img-figure-gradient:hover > .after {
   z-index: 2;
   overflow: hidden; }
   .img-figure-triangle.link > .before:before {
-    content: '+'; }
+    content: '\f067'; }
   .img-figure-triangle.link:before {
     content: '\f067';
     font-weight: 600; }
@@ -376,13 +376,14 @@ a.img-figure-gradient:hover > .after {
     -webkit-box-align: center;
             align-items: center;
     color: var(--brk-base-6);
-    font-size: 36px;
+    font-size: 22px;
     -webkit-transition: all .4s ease;
     transition: all .4s ease;
     z-index: 3; }
     .img-figure-triangle > .before:before {
-      content: '+';
-      font-family: "Font Awesome\ 5 Free"; }
+      content: '\f067';
+      font-family: "Font Awesome\ 5 Free";
+      font-weight: 600; }
   .img-figure-triangle > .after {
     position: absolute;
     bottom: 0;

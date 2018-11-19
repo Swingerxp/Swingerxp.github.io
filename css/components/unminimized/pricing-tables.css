@@ -1,11 +1,11 @@
 .brk-pricing-light > .container [class*="col-"]:nth-child(2) .brk-pricing-light__item .brk-pricing-light__header::after, .brk-pricing-light > .container > [class*="row"]:hover > [class*="col-"]:nth-child(2) .brk-pricing-light__item:hover .brk-pricing-light__header::after, .brk-pricing-light__item:hover .brk-pricing-light__header::after {
   background: url(../../img/sprite.png) 0px 0px;
-  width: 396px;
+  width: 100px;
   height: 1px; }
 
 .brk-pricing-light__header::after {
   background: url(../../img/sprite.png) 0px -11px;
-  width: 396px;
+  width: 100px;
   height: 1px; }
 
 .colored-slider .swiper-slide {

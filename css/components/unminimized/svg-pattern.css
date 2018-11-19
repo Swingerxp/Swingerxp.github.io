@@ -188,3 +188,17 @@
   height: 150px; }
   .brk-svg-pattern-container-21 svg {
     top: 0; }
+
+.brk-svg-pattern-container-22 {
+  height: 50px; }
+  .brk-svg-pattern-container-22.brk-svg-pattern-container_top {
+    background-position-y: -50px; }
+  .brk-svg-pattern-container-22.brk-svg-pattern-container_bottom {
+    background-position-y: 100px; }
+
+.brk-svg-pattern-container-23 {
+  height: 5px; }
+  .brk-svg-pattern-container-23.brk-svg-pattern-container_top {
+    background-position-y: -1px; }
+  .brk-svg-pattern-container-23.brk-svg-pattern-container_bottom {
+    background-position-y: -19px; }

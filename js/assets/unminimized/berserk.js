@@ -784,6 +784,11 @@ window.lazySizesConfig.expand = 500;
         "vendor/odometer/js/odometer.min.js"
       ]
     },
+    "typewriter": {
+      "js": [
+        "vendor/typewriter/js/core.js"
+      ]
+    },
     "jqueryAutocomplete": {
       "css": [
         "vendor/jqueryAutocomplete/css/jquery-ui.css"
@@ -1071,6 +1076,11 @@ window.lazySizesConfig.expand = 500;
       "dependency": [
         "component__widgets_css",
         "slider__slick"
+      ]
+    },
+    "component__winter": {
+      "css": [
+        "css/components/winter.css"
       ]
     },
     "component__media_embeds": {

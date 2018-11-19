@@ -4,7 +4,7 @@
   * Check the Google ReCaptcha v3 and validate if this is not a robot
   */
   if(isset($_GET['g-recaptcha-response'])){
-    $secretKey = "6Lfsu3QUAAAAAIxjV7mfo_dEDo-96nEne7D7IchX"; // Put your secret key here
+    $secretKey = "6Lfка3QUAAAAAIxjV7mfo_dEDo-96nEne7D7IchX"; // Put your secret key here
     $ip = $_SERVER['REMOTE_ADDR'];
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $_GET['g-recaptcha-response'] . "&remoteip=" . $ip);
     $responseKeys = json_decode($response , true);
@@ -38,8 +38,8 @@
   include('./MailChimp.php');
   // namespace defined in MailChimp.php
   use \DrewM\MailChimp\MailChimp;
-	$MailChimp = new MailChimp('e5998b13a557c052a7572a3bdcfa82aa-us19'); // put your API key here
-	$list = 'df7a7d0c50'; // put your list ID here
+	$MailChimp = new MailChimp('e5998b13a557c05223572a3bdcfa82aa-us19'); // put your API key here
+	$list = 'df7a7d4560'; // put your list ID here
   // setup the merge fields
 	$mergeFields = array(
     'FNAME' => isset($_GET['FNAME']) ? $_GET['FNAME'] : '',

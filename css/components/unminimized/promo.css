@@ -251,3 +251,89 @@
       text-align: center;
       padding-top: 50px;
       padding-bottom: 50px; } }
+
+.brk-promo-hexagon-card {
+  position: relative;
+  display: block;
+  width: 110px;
+  height: 192px;
+  background-color: #fff;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.07); }
+  .brk-promo-hexagon-card__side {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    -webkit-transition: .3s ease background;
+    transition: .3s ease background;
+    z-index: 2; }
+  .brk-promo-hexagon-card__side-1 {
+    -webkit-transform: translate(-50%, -50%) rotate(60deg);
+            transform: translate(-50%, -50%) rotate(60deg); }
+  .brk-promo-hexagon-card__side-2 {
+    -webkit-transform: translate(-50%, -50%) rotate(-60deg);
+            transform: translate(-50%, -50%) rotate(-60deg); }
+  .brk-promo-hexagon-card::after, .brk-promo-hexagon-card::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    box-shadow: inherit;
+    z-index: 1; }
+  .brk-promo-hexagon-card::after {
+    -webkit-transform: translate(-50%, -50%) rotate(60deg);
+            transform: translate(-50%, -50%) rotate(60deg); }
+  .brk-promo-hexagon-card::before {
+    -webkit-transform: translate(-50%, -50%) rotate(-60deg);
+            transform: translate(-50%, -50%) rotate(-60deg); }
+  .brk-promo-hexagon-card__content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    text-align: center;
+    padding-top: 48px;
+    background-color: inherit;
+    -webkit-transition: .3s ease background;
+    transition: .3s ease background; }
+    .brk-promo-hexagon-card__content > i {
+      font-size: 74px;
+      color: var(--brand-primary); }
+  .brk-promo-hexagon-card:hover {
+    background-color: var(--brand-primary); }
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__title {
+      color: #fff; }
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content > i,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-base circle,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-base line,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-base path,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-base polyline,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-base rect,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-blue circle,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-blue line,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-blue path,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-blue polyline,
+    .brk-promo-hexagon-card:hover .brk-promo-hexagon-card__content .svg-blue rect {
+      stroke: #fff; }
+
+.brk-promo-hexagon {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  padding-top: 250px;
+  padding-bottom: 250px; }
+  .brk-promo-hexagon__bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    height: 300px;
+    fill: rgba(var(--brand-primary-rgb), 0.06); }

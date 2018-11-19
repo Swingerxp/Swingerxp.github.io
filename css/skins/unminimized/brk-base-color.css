@@ -526,6 +526,10 @@
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.6)), to(rgba(255, 255, 255, 0.6)));
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%); }
 
+.brk-base-gradient-39 {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(var(--brand-primary-rgb), 0.22)), color-stop(50%, rgba(var(--brand-primary-rgb), 0.22)), to(rgba(var(--brand-primary-rgb), 0)));
+  background-image: linear-gradient(to top, rgba(var(--brand-primary-rgb), 0.22) 0%, rgba(var(--brand-primary-rgb), 0.22) 50%, rgba(var(--brand-primary-rgb), 0) 100%); }
+
 .brk-base-bg-white-transparent {
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(var(--white-rgb), 0.04)), to(rgba(var(--white-rgb), 0.04)));
   background-image: linear-gradient(to right, rgba(var(--white-rgb), 0.04), rgba(var(--white-rgb), 0.04)); }
@@ -794,13 +798,22 @@
   background-color: rgba(20, 20, 20, 0.8); }
 
 .brk-base-bg-12 {
-  background-color: rgba(39, 39, 39, 0); }
+  background-color: rgba(39, 39, 39, 0.7); }
 
 .brk-base-bg-13 {
   background-color: #f8f9fe; }
 
 .brk-base-bg-13-fill {
   fill: #f8f9fe; }
+
+.brk-base-bg-primary-30 {
+  background-color: rgba(var(--brand-primary-rgb), 0.3); }
+
+.brk-base-bg-primary-50 {
+  background-color: rgba(var(--brand-primary-rgb), 0.5); }
+
+.brk-base-bg-primary-80 {
+  background-color: rgba(var(--brand-primary-rgb), 0.8); }
 
 .brk-base-bg-gradient-7 {
   background: -webkit-gradient(linear, left top, right top, from(var(--brk-base-2)), color-stop(50%, var(--brk-base-3)), to(var(--secondary)));

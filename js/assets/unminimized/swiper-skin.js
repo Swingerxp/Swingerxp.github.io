@@ -667,57 +667,37 @@
       // Default
       $(context).parent().find('.brk-swiper-default:not(.rendered)').addClass('rendered').each(function () {
         var el = $(this),
-          slider = el.find('.swiper-container'),
-          sliderNext = el.find('.brk-swiper-default-nav-next'),
-          sliderPrev = el.find('.brk-swiper-default-nav-prev'),
-          pagination = el.find('.brk-swiper-default-pagination'),
-          delay = el.data('delay'),
-          param = {};
+          slider      = el.find('.swiper-container'),
+          sliderNext  = el.find('.brk-swiper-default-nav-next'),
+          sliderPrev  = el.find('.brk-swiper-default-nav-prev'),
+          pagination  = el.find('.brk-swiper-default-pagination'),
+          params      = el.data('brk-swiper') ? el.data('brk-swiper') : {};
 
-        if (delay) {
-          param = {
-            init: false,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            speed: 1000,
-            loop: true,
-            autoHeight: true,
-            autoplay: {
-              delay: delay
-            },
-            navigation: {
-              nextEl: sliderNext,
-              prevEl: sliderPrev
-            },
-            pagination: {
-              el: pagination,
-              clickable: true,
-              bulletClass: 'brk-swiper-default-pagination-bullet',
-              bulletActiveClass: 'brk-swiper-default-pagination-bullet-active'
-            }
+        var defaults = {
+          init: false,
+          slidesPerView: 1,
+          spaceBetween: 0,
+          speed: 1000,
+          loop: true,
+          autoHeight: true,
+          autoplay: {
+            delay: 3000
+          },
+          navigation: {
+            nextEl: sliderNext,
+            prevEl: sliderPrev
+          },
+          pagination: {
+            el: pagination,
+            clickable: true,
+            bulletClass: 'brk-swiper-default-pagination-bullet',
+            bulletActiveClass: 'brk-swiper-default-pagination-bullet-active'
           }
-        } else {
-          param = {
-            init: false,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            speed: 1000,
-            loop: true,
-            autoHeight: true,
-            navigation: {
-              nextEl: sliderNext,
-              prevEl: sliderPrev
-            },
-            pagination: {
-              el: pagination,
-              clickable: true,
-              bulletClass: 'brk-swiper-default-pagination-bullet',
-              bulletActiveClass: 'brk-swiper-default-pagination-bullet-active'
-            }
-          }
-        }
+        };
 
-        var brkDefaultSwiper = new Swiper(slider, param);
+        var options = $.extend({}, defaults, params);
+
+        var brkDefaultSwiper = new Swiper(slider, options);
 
         window.addEventListener("load", function () {
           brkDefaultSwiper.init()

@@ -49,6 +49,8 @@
   .highlight-underline + .highlight-underline {
     padding-top: 0;
     margin-top: -6px; }
+  .highlight-underline_white > .before {
+    background: #fff; }
 
 .divider {
   width: 35px;

@@ -279,6 +279,9 @@
       .btn-simple.btn-circle i.icon-inside:before {
         line-height: 24px;
         vertical-align: top; }
+    .btn-simple.btn-circle.btn-md {
+      width: 44px;
+      height: 44px; }
 
 .btn-inside-out {
   overflow: hidden;
@@ -464,6 +467,14 @@
     .btn-prime-primary-transparent:hover > .after {
       background: #fff !important; }
     .btn-prime-primary-transparent .border-btn {
+      border-color: var(--brand-primary); }
+  .btn-prime-primary-text-transparent {
+    background: transparent;
+    color: var(--brand-primary); }
+    .btn-prime-primary-text-transparent:hover > .before,
+    .btn-prime-primary-text-transparent:hover > .after {
+      background: #fff !important; }
+    .btn-prime-primary-text-transparent .border-btn {
       border-color: var(--brand-primary); }
   .btn-prime.btn-invert {
     color: #fff; }

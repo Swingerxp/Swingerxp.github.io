@@ -94,6 +94,12 @@
     .font__size-106 {
       font-size: 106px; } }
 
+.font__size-98 {
+  font-size: 3.125rem; }
+  @media (min-width: 768px) {
+    .font__size-98 {
+      font-size: 98px; } }
+
 .font__size-96 {
   font-size: 3.125rem; }
   @media (min-width: 768px) {
@@ -306,6 +312,12 @@
   @media (min-width: 768px) {
     .line__height-224 {
       line-height: 224px; } }
+
+.line__height-98 {
+  line-height: 50px; }
+  @media (min-width: 768px) {
+    .line__height-98 {
+      line-height: 98px; } }
 
 .line__height-96 {
   line-height: 50px; }

@@ -166,11 +166,11 @@
   .brk-tiles-simple:hover .brk-tiles-simple__link {
     box-shadow: none; }
     .brk-tiles-simple:hover .brk-tiles-simple__link .before {
-      -webkit-animation: 1.5s pulse .3s infinite;
-              animation: 1.5s pulse .3s infinite; }
+      -webkit-animation: 1.5s brk-pulse .3s infinite;
+              animation: 1.5s brk-pulse .3s infinite; }
     .brk-tiles-simple:hover .brk-tiles-simple__link .after {
-      -webkit-animation: pulse 1.5s infinite;
-              animation: pulse 1.5s infinite; }
+      -webkit-animation: brk-pulse 1.5s infinite;
+              animation: brk-pulse 1.5s infinite; }
   .brk-tiles-simple .before {
     position: absolute;
     top: 0;

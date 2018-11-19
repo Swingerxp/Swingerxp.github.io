@@ -25,7 +25,9 @@
       margin: 0 27px !important; } }
   @media (min-width: 992px) {
       .brk-nav_modifier-bold .brk-nav__menu > li > a {
-        font-weight: 700 !important; } }
+        font-weight: 700 !important; }
+      .brk-nav_modifier-capitalize .brk-nav__menu > li > a {
+        text-transform: capitalize; } }
   @media (max-width: 991px) {
     .brk-nav {
       position: relative; } }
@@ -124,12 +126,22 @@
         @media (max-width: 1399px) {
           .brk-header_style-1 .brk-nav__menu > li {
             margin: 0 8px; } }
+        @media (min-width: 992px) and (max-width: 1024px) {
+          .brk-header_style-1 .brk-nav__menu > li {
+            margin: 0 4px; } }
+        .brk-boxed .brk-header_style-1 .brk-nav__menu > li {
+          margin: 0 7px; }
       .brk-header_style-2 .brk-nav__menu > li {
         /* -------------------- STYLE #2 ----------------------- */
         margin: 0 17px; }
         @media (max-width: 1199px) {
           .brk-header_style-2 .brk-nav__menu > li {
             margin: 0 8px; } }
+        @media (min-width: 992px) and (max-width: 1024px) {
+          .brk-header_style-2 .brk-nav__menu > li {
+            margin: 0 4px; } }
+        .brk-boxed .brk-header_style-2 .brk-nav__menu > li {
+          margin: 0 10px; }
       @media (min-width: 992px) and (max-height: 900px) {
         .brk-header_vertical .brk-nav__menu > li {
           margin: 0 8px; } }
@@ -252,6 +264,9 @@
           @media (max-width: 1399px) {
             .brk-header_style-1 .brk-nav__menu > li > a {
               font-size: 0.8125rem; } }
+          @media (min-width: 992px) and (max-width: 1024px) {
+            .brk-header_style-1 .brk-nav__menu > li > a {
+              font-size: 0.6875rem; } }
         .brk-header_style-2 .brk-nav__menu > li > a {
           /* -------------------- STYLE #2 ----------------------- */
           font-weight: 600;
@@ -263,6 +278,9 @@
           @media (max-width: 991px) {
             .brk-header_style-2 .brk-nav__menu > li > a {
               line-height: 48px; } }
+          @media (min-width: 992px) and (max-width: 1024px) {
+            .brk-header_style-2 .brk-nav__menu > li > a {
+              font-size: 0.6875rem; } }
         .brk-header_style-1.brk-header_color-white .brk-nav__menu > li > a {
           /* ---- brk-header_style-1.brk-header_color-white ---- */
           color: #fff; }
@@ -575,6 +593,11 @@
         color: #fff; }
       .brk-header_color-dark .brk-call-us {
         color: #272727; } }
+  @media (min-width: 992px) and (max-width: 1024px) {
+    .brk-call-us {
+      width: 40px;
+      height: 40px;
+      border: 0; } }
   .brk-header-mobile-wrap .brk-call-us {
     margin: 0 0 0 30px;
     height: 42px;
@@ -597,11 +620,14 @@
     display: block;
     line-height: 42px !important;
     padding-left: 30px; }
-    @media (min-width: 992px) {
+    @media (min-width: 1024px) {
       .brk-call-us__number {
         padding-left: 28px;
         padding-right: 56px;
         line-height: 40px !important; } }
+    @media (min-width: 992px) and (max-width: 1024px) {
+      .brk-call-us__number {
+        display: none; } }
     .brk-header-mobile-wrap .brk-call-us__number:hover {
       color: #000000; }
     .brk-call-us__number i {
@@ -2564,7 +2590,7 @@
       font-size: 0.5rem;
       line-height: 14px;
       display: inline-block;
-      margin: 11px 0 0 12px;
+      margin: 4px 0 0 12px;
       padding: 0 6px;
       text-transform: uppercase;
       color: #fff; }
@@ -3168,6 +3194,29 @@
   /* Logo */
   /* Modifications */
   /* Component */ }
+  .brk-boxed .brk-header {
+    /*.container, .container-fluid {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+
+		.row {
+			margin-right: 0 !important;
+			margin-left: 0 !important;
+		}
+
+		[class*='col'] {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}*/ }
+    @media (min-width: 1230px) {
+      .brk-boxed .brk-header {
+        width: 100%;
+        max-width: 1230px;
+        left: 50%;
+        right: auto;
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%); } }
   .brk-header_not-fixed {
     position: static; }
   .admin-bar .brk-header {
@@ -3177,6 +3226,10 @@
       -webkit-transform: translateY(-100%) !important;
               transform: translateY(-100%) !important;
       top: 0 !important; } }
+  @media (min-width: 1230px) {
+    .brk-boxed .brk-header_sticky-hide {
+      -webkit-transform: translate(-50%, -100%) !important;
+              transform: translate(-50%, -100%) !important; } }
   @media (min-width: 992px) {
     .brk-header_vertical .brk-header__main-bar {
       width: 100vh;

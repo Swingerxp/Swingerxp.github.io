@@ -15,6 +15,15 @@
         margin-left: 0; }
     .brk-social-links__item i {
       line-height: inherit; }
+  .brk-social-links_wide .brk-social-links__item {
+    margin-right: 35px; }
+    [dir=rtl] .brk-social-links_wide .brk-social-links__item {
+      margin-right: 0;
+      margin-left: 35px; }
+    .brk-social-links_wide .brk-social-links__item:last-of-type {
+      margin-right: 0; }
+      [dir=rtl] .brk-social-links_wide .brk-social-links__item:last-of-type {
+        margin-left: 0; }
   .brk-social-links_bordered .brk-social-links__item {
     width: 42px;
     height: 42px;
