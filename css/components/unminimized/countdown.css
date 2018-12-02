@@ -416,6 +416,29 @@
       background-color: #fff; }
   .countdown__flip-2_white .label {
     color: #fff; }
+  .countdown__flip-2_primary .count {
+    background-color: var(--brand-primary);
+    color: #fff; }
+    .countdown__flip-2_primary .count.top {
+      border-bottom: 1px solid var(--brand-primary); }
+    .countdown__flip-2_primary .count.top, .countdown__flip-2_primary .count.bottom {
+      background-color: var(--brand-primary); }
+  .countdown__flip-2_primary .label {
+    color: #fff; }
+  .countdown__flip-2_brk-base-1 .count {
+    background-color: var(--brk-base-1);
+    color: #fff; }
+    .countdown__flip-2_brk-base-1 .count.top {
+      border-bottom: 1px solid var(--brk-base-1); }
+    .countdown__flip-2_brk-base-1 .count.top, .countdown__flip-2_brk-base-1 .count.bottom {
+      background-color: var(--brk-base-1); }
+  .countdown__flip-2_brk-base-1 .label {
+    color: #fff; }
+  .countdown__flip-2_not-centred {
+    margin-left: 0;
+    margin-right: 0; }
+    .countdown__flip-2_not-centred .countdown__section {
+      padding: 0; }
 
 .countdown__large .countdown {
   background: #fff; }

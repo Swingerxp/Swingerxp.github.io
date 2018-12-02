@@ -104,7 +104,8 @@
 .shape-box__wrapper-half,
 .brk-sc-row-four__video,
 .brk-sc-row-four__bg,
-.timeline--masonry .timeline__item img {
+.timeline--masonry .timeline__item img,
+.embed-responsive.video-wrap {
   border-radius: 3px;
   overflow: hidden; }
 
@@ -115,7 +116,28 @@
 .timeline--masonry .swiper-pagination-bullet-active ~ .swiper-pagination-bullet:after {
   box-shadow: 0 0 0 6px #f7f8fb !important; }
 
+.countdown__flip-2 .time:before,
+.countdown__flip-2 .time:after {
+  background-color: #bcd0ff !important; }
+
 .brk-dark-font-color,
 .text-gray,
 figure .text-gray, figure figcaption p {
   color: #546173 !important; }
+
+.brk-pricing-plan__btn {
+  text-transform: none; }
+
+[data-brk-library="component__call_to_action"]::after {
+  content: none; }
+
+[data-brk-library="component__call_to_action"] .hot-panel {
+  border: 3px solid #fff;
+  background-image: none;
+  background-color: transparent; }
+
+[data-brk-library="component__call_to_action"] .brk-base-bg-primary-90 {
+  background-color: rgba(23, 34, 54, 0.9); }
+
+.brk-pricing-plan .brk-layer {
+  background-color: #172236; }

@@ -247,6 +247,9 @@
 .brk-bg-gradient-35deg-92 {
   background-image: linear-gradient(35deg, rgba(var(--brand-primary-rgb), 0.92) 0%, rgba(var(--secondary-rgb), 0.92) 66%, rgba(var(--secondary-rgb), 0.92) 100%); }
 
+.brk-bg-gradient--260deg-96 {
+  background-image: linear-gradient(-260deg, rgba(var(--secondary-rgb), 0.96) 0%, rgba(var(--brand-primary-rgb), 0.96) 100%); }
+
 .brk-light-gradient-90deg-94 {
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(var(--brand-primary-rgb), 0.94)), to(rgba(var(--brk-base-2-rgb), 0.94)));
   background-image: linear-gradient(90deg, rgba(var(--brand-primary-rgb), 0.94), rgba(var(--brk-base-2-rgb), 0.94)); }
@@ -527,8 +530,8 @@
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%); }
 
 .brk-base-gradient-39 {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(var(--brand-primary-rgb), 0.22)), color-stop(50%, rgba(var(--brand-primary-rgb), 0.22)), to(rgba(var(--brand-primary-rgb), 0)));
-  background-image: linear-gradient(to top, rgba(var(--brand-primary-rgb), 0.22) 0%, rgba(var(--brand-primary-rgb), 0.22) 50%, rgba(var(--brand-primary-rgb), 0) 100%); }
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(var(--brand-primary-rgb), 0.42)), color-stop(50%, rgba(var(--brand-primary-rgb), 0.42)), to(rgba(var(--brand-primary-rgb), 0)));
+  background-image: linear-gradient(to top, rgba(var(--brand-primary-rgb), 0.42) 0%, rgba(var(--brand-primary-rgb), 0.42) 50%, rgba(var(--brand-primary-rgb), 0) 100%); }
 
 .brk-base-bg-white-transparent {
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(var(--white-rgb), 0.04)), to(rgba(var(--white-rgb), 0.04)));
@@ -814,6 +817,9 @@
 
 .brk-base-bg-primary-80 {
   background-color: rgba(var(--brand-primary-rgb), 0.8); }
+
+.brk-base-bg-primary-90 {
+  background-color: rgba(var(--brand-primary-rgb), 0.9); }
 
 .brk-base-bg-gradient-7 {
   background: -webkit-gradient(linear, left top, right top, from(var(--brk-base-2)), color-stop(50%, var(--brk-base-3)), to(var(--secondary)));

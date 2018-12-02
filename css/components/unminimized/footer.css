@@ -622,23 +622,49 @@
 .brk-form_footer-9 .input-label {
   color: rgba(255, 255, 255, 0.4) !important; }
 
-.brk-footer-16__img-overlay {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  min-height: 570px;
-  -o-object-fit: cover;
-     object-fit: cover; }
-
-.brk-footer-16__form input {
-  background-color: transparent;
-  border: none; }
-  .brk-footer-16__form input::-webkit-input-placeholder {
-    color: currentColor; }
-  .brk-footer-16__form input:-ms-input-placeholder {
-    color: currentColor; }
-  .brk-footer-16__form input::-ms-input-placeholder {
-    color: currentColor; }
-  .brk-footer-16__form input::placeholder {
-    color: currentColor; }
+.brk-footer-16 {
+  overflow: hidden; }
+  .brk-footer-16__img-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 570px;
+    -o-object-fit: cover;
+       object-fit: cover; }
+  .brk-footer-16__form input {
+    background-color: transparent;
+    border: none; }
+    .brk-footer-16__form input::-webkit-input-placeholder {
+      color: currentColor; }
+    .brk-footer-16__form input:-ms-input-placeholder {
+      color: currentColor; }
+    .brk-footer-16__form input::-ms-input-placeholder {
+      color: currentColor; }
+    .brk-footer-16__form input::placeholder {
+      color: currentColor; }
+  .brk-footer-16_style-1 .brk-footer-16__img-overlay {
+    min-height: 796px; }
+  .brk-footer-16_style-1 .brk-footer-16__form .brk-form-wrap {
+    margin-top: 19px; }
+  .brk-footer-16_style-1 .brk-footer-16__form .brk-form__textarea-container {
+    height: 100%; }
+    .brk-footer-16_style-1 .brk-footer-16__form .brk-form__textarea-container .brk-form-wrap {
+      height: 100%; }
+      .brk-footer-16_style-1 .brk-footer-16__form .brk-form__textarea-container .brk-form-wrap textarea {
+        height: -webkit-calc(100% - 19px);
+        height: calc(100% - 19px); }
+  .brk-footer-16_style-1 .brk-footer-16__form input[type="text"],
+  .brk-footer-16_style-1 .brk-footer-16__form input[type="password"],
+  .brk-footer-16_style-1 .brk-footer-16__form input[type="email"],
+  .brk-footer-16_style-1 .brk-footer-16__form input[type="tel"],
+  .brk-footer-16_style-1 .brk-footer-16__form textarea {
+    background-color: transparent;
+    color: #fff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.9) !important; }
+  .brk-footer-16_style-1 .brk-footer-16__form textarea {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important; }
+  .brk-footer-16_style-1 .brk-footer-16__form .input-label {
+    color: #fff !important; }

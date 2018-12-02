@@ -1667,6 +1667,7 @@ window.lazySizesConfig.expand = 500;
   }
   /* End Novi Builder */
 
+
 })(jQuery);
 (function($){
   $( document ).ready(function() {
@@ -3005,7 +3006,7 @@ window.lazySizesConfig.expand = 500;
             var x = event.pageX - parentOffset.left;
             var y = event.pageY - parentOffset.top;
 
-            $(this).css({'--x': x, '--y': y});
+            $(this).attr('style', '--x:' + x + 'px;--y:' + y + 'px')
           });
 
     }
@@ -3405,9 +3406,28 @@ window.lazySizesConfig.expand = 500;
         })
       }
       //footer shop slider end 
-
+      
     }
   }
+
+  Berserk.behaviors.footer_scrollr_init = {
+    attach: function (context, settings) {
+      if($('[data-skrollr]:not(.skrollr-rendered)').length){
+        if (typeof skrollr === 'undefined') {
+          console.log('Waiting for the skrollr library');
+          setTimeout(Berserk.behaviors.footer_scrollr_init.attach, settings.timeout_delay, context, settings);
+          return;
+        }
+        $('[data-skrollr]:not(.skrollr-rendered)').addClass("skrollr-rendered");
+        setTimeout(function() {
+          var s = skrollr.init({forceHeight: false});
+        }, 1500)
+        
+      }
+    }
+  }
+
+
 })(jQuery);
 
 (function ($) {

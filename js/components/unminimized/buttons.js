@@ -109,7 +109,7 @@
             var x = event.pageX - parentOffset.left;
             var y = event.pageY - parentOffset.top;
 
-            $(this).css({'--x': x, '--y': y});
+            $(this).attr('style', '--x:' + x + 'px;--y:' + y + 'px')
           });
 
     }

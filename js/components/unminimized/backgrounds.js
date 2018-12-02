@@ -527,6 +527,7 @@
         }
         $('[data-skrollr]:not(.rendered)').addClass("rendered");
         var s = skrollr.init();
+        console.log("skrollr init")
       }
     }
   }

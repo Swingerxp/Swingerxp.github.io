@@ -76,6 +76,9 @@
   .cfa__hot .btn:not(.btn-inside-out-invert) .border-btn {
     border-color: var(--brk-base-2); }
 
+.cfa__hot .btn.btn-prime-white-transparent .border-btn {
+  border-color: #fff; }
+
 .cfa__hot_primary .btn {
   /*> .before, > .after {
         background: var(--brand-primary);
@@ -176,6 +179,9 @@
 .cfa__video {
   padding: 150px 0 50px;
   margin-top: -90px; }
+  .cfa__video_style-1 {
+    padding: 275px 0 65px;
+    margin-top: -215px; }
   .cfa__video .border-left {
     padding: 10px 35px;
     display: inline-block;

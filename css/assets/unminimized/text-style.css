@@ -76,6 +76,12 @@
     .font__size-186 {
       font-size: 186px; } }
 
+.font__size-156 {
+  font-size: 4.75rem; }
+  @media (min-width: 768px) {
+    .font__size-156 {
+      font-size: 156px; } }
+
 .font__size-124 {
   font-size: 4.75rem; }
   @media (min-width: 768px) {
@@ -312,6 +318,12 @@
   @media (min-width: 768px) {
     .line__height-224 {
       line-height: 224px; } }
+
+.line__height-156 {
+  line-height: 4.75rem; }
+  @media (min-width: 768px) {
+    .line__height-156 {
+      line-height: 156px; } }
 
 .line__height-98 {
   line-height: 50px; }

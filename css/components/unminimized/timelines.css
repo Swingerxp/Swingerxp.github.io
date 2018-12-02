@@ -90,8 +90,13 @@
     transition: all ease .15s;
     background: #d5d5d5; }
 
-.timeline--strict .swiper-pagination-bullet-active:after, .timeline--masonry .swiper-pagination-bullet-active:after {
+.timeline--strict .swiper-pagination-bullet-active:after,
+.timeline--strict .swiper-pagination-bullet:after, .timeline--masonry .swiper-pagination-bullet-active:after,
+.timeline--masonry .swiper-pagination-bullet:after {
   background: var(--brand-primary); }
+
+.timeline--strict .swiper-pagination-bullets .swiper-pagination-bullet-active ~ .swiper-pagination-bullet:after, .timeline--masonry .swiper-pagination-bullets .swiper-pagination-bullet-active ~ .swiper-pagination-bullet:after {
+  background: #d5d5d5; }
 
 .timeline--strict .filmstrip-slider-container, .timeline--masonry .filmstrip-slider-container {
   padding-top: 76px; }

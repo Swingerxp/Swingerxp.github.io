@@ -107,7 +107,7 @@
       .brk-sc-tiles-trend_dark-text:before {
         background-color: rgba(var(--white-rgb), 0.88); }
       .brk-sc-tiles-trend_dark-text .brk-sc-tiles-trend__text {
-        color: rgba(var(--brand-primary-rgb), 0.6); }
+        color: #272727; }
     .brk-sc-tiles-trend__content {
       position: relative;
       z-index: 2;

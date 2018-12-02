@@ -856,6 +856,9 @@ body .main-icon {
             transform: translate(-50%, -50%); }
   body .main-icon + * {
     margin-top: 56px; }
+  body .main-icon_white {
+    border-color: #fff;
+    color: #fff; }
 
 .inline-wrap > div {
   -webkit-box-flex: 1;
@@ -2392,3 +2395,6 @@ body .main-icon {
 
 .text-transform-none {
   text-transform: none !important; }
+
+.fancybox-image-wrap {
+  background-color: #f3f3f3 !important; }

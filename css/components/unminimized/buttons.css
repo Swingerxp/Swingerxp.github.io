@@ -293,10 +293,19 @@
     background: #272727 !important; }
     .btn-inside-out_dark:hover {
       background: var(--brk-base-4) !important;
-      color: #272727; }
+      color: #272727 !important; }
+      .btn-inside-out_dark:hover i {
+        color: #272727 !important; }
     .btn-inside-out_dark > .before,
     .btn-inside-out_dark > .after {
       background: #272727 !important; }
+  .btn-inside-out_text-dark {
+    color: #272727 !important; }
+    .btn-inside-out_text-dark.btn-inside-out-invert.btn-icon [class*="fa-"]:before {
+      color: #272727; }
+    .btn-inside-out_text-dark > .before,
+    .btn-inside-out_text-dark > .after {
+      color: #272727 !important; }
   .btn-inside-out_blue {
     background: #000243 !important; }
     .btn-inside-out_blue:hover {

@@ -427,11 +427,6 @@
   color: var(--brand-primary); }
 
 .brs-post_sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 25px;
-  z-index: 98;
-  background-color: #fff;
   box-shadow: 0 6px 26px rgba(0, 0, 0, 0.56); }
 
 .brs-carousel_news .brs-carousel__dots-circled li.slick-active {
