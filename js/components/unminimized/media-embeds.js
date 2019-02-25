@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.media_embeds_init = {
     attach: function (context, settings) {
 
@@ -22,33 +24,12 @@
 
       var hostedVideo = $('.brk-hosted-video:not(.rendered)', context).addClass('rendered');
       hostedVideo.each(function (index) {
-        var playButton = $(this).find('.brk-hosted-video__btn');
-        var video = $(this).find('video');
-        var source = $(this).find("source");
-        var src = source.attr("data-src");
-        var img = $(this).find('.brk-hosted-video__img')
+        var playButton = $(this).find('.brk-hosted-video__btn'),
+          video = $(this).find('video');
 
-        if (!$(this).hasClass('brk-hosted-video_inner')) {
-          playButton.attr('href', '#' + 'brk-hosted-video-' + index)
-          video.attr('id', 'brk-hosted-video-' + index)
-
-          playButton.click(function (event) {
-            source.attr("src", src);
-            setTimeout(function () {
-              video.get(0).play()
-            }, 100)
-          })
-        }
         if ($(this).hasClass('brk-hosted-video_inner')) {
-          playButton.click(function (event) {
-
-            video.css("display", "block");
-            playButton.css("display", "none");
-            source.attr("src", src);            
-            setTimeout(function () {
-              video.get(0).play()
-            }, 100)
-          })
+          playButton.attr('href', '#' + 'brk-hosted-video-' + index);
+          video.attr('id', 'brk-hosted-video-' + index)
         }
       })
     }

@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.portfolio_masonry_init = {
     attach: function (context, settings) {
 
@@ -53,7 +55,7 @@
             setCols($currentWidth);
           }, 300);
 
-          $(window).resize(function () {
+          $(window).on('resize', function () {
             setCols($(window).width());
           });
 
@@ -95,14 +97,16 @@
 
 
           $('.brk-filters:not(.rendered)',context).find('.brk-filters__item').each(function () {
-            var filterElem = $(this);
-            var filterName = $(this).attr('data-filter');
+            var filterElem = $(this),
+                filterName = filterElem.attr('data-filter'),
+                elemCount;
+
             if (filterName && filterName !== '*') {
-              var elemCount = $grid.find(filterName).length;
+              elemCount = $grid.find(filterName).length;
               filterElem.find('.brk-filters__count').html(elemCount);
             }
             if (filterName && filterName === '*') {
-              var elemCount = $grid.find('.brk-grid__item').length;
+              elemCount = $grid.find('.brk-grid__item').length;
               filterElem.find('.brk-filters__count').html(elemCount);
             }
           });

@@ -1,10 +1,12 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.gallery_sliders_init = {
     attach: function (context, settings) {
 
       // GRADIENT SLIDER
 
-      if (typeof $.fn.slick == 'undefined') {
+      if (typeof $.fn.slick === 'undefined') {
         console.log('Waiting for the slick library');
         setTimeout(Berserk.behaviors.gallery_sliders_init.attach, settings.timeout_delay, context, settings);
         return;
@@ -51,7 +53,7 @@
           if (filterName === 'all') {
             counter.html(gradient_slider.children().length)
           } else {
-            var selector = "[data-filter='" + filterName + "']"
+            var selector = "[data-filter='" + filterName + "']";
             counter.html(gradient_slider.find(selector).length)
           }
         });
@@ -112,8 +114,7 @@
             },
           ]
         });
-      })
-
+      });
 
 
       // SOLID SLIDER
@@ -133,7 +134,7 @@
           if (filterName === 'all') {
             counter.html(solid_slider.children().length)
           } else {
-            var selector = "[data-filter='" + filterName + "']"
+            var selector = "[data-filter='" + filterName + "']";
             counter.html(solid_slider.find(selector).length)
           }
         });
@@ -212,9 +213,7 @@
             },
           ]
         });
-      })
-
-
+      });
 
       // STRICT SLIDER
       var strict_carousel_container = $(context).parent().find('.brk-strict-carousel:not(.rendered)').addClass("rendered");
@@ -251,7 +250,7 @@
             },
           ]
         });
-      })
+      });
 
       // DARK SLIDER
 

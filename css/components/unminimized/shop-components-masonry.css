@@ -248,12 +248,16 @@
           padding: 20px 20px 0; } }
       [class*="brk-sc-masonry_small-"] .brk-sc-masonry-two__top-content {
         padding: 33px 0 0 38px; }
+      .brk-sc-masonry-two__top-content a {
+        text-decoration: none !important; }
     .brk-sc-masonry-two__bottom-content {
       width: 100%;
       padding: 0 0 38px 38px; }
       @media (max-width: 575px) {
         .brk-sc-masonry-two__bottom-content {
           padding: 0 20px 20px; } }
+    .brk-sc-masonry-two__title {
+      text-decoration: none; }
     .brk-sc-masonry-two__description {
       width: 100%;
       max-width: 380px;
@@ -288,8 +292,12 @@
         min-width: 98px;
         min-height: 40px;
         box-shadow: none;
-        padding: 8px;
+        padding: 8px 21px;
+        font-size: 12px;
+        letter-spacing: .1em;
         margin: 0 6px 10px 0; }
+        .brk-sc-masonry-two__links .btn > i {
+          font-size: 12px; }
         .brk-sc-masonry-two__links .btn.btn-prime {
           color: #cdcdcd; }
           .brk-sc-masonry-two__links .btn.btn-prime:hover {
@@ -357,16 +365,19 @@
       -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
               justify-content: space-between; }
       @media (min-width: 992px) and (max-width: 1229px) {
         .brk-sc-masonry-two__buy {
           -webkit-box-pack: start;
+          -webkit-justify-content: flex-start;
                   justify-content: flex-start;
           padding-right: 0;
           padding-left: 15px; } }
       @media (max-width: 991px) {
         .brk-sc-masonry-two__buy {
           -webkit-box-pack: justify;
+          -webkit-justify-content: space-between;
                   justify-content: space-between;
           padding: 0 15px; } }
       .brk-sc-masonry-two__buy .price {
@@ -444,32 +455,40 @@
       height: 100%;
       z-index: 3;
       -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
               justify-content: space-between;
-      align-content: flex-start; }
+      -webkit-align-content: flex-start;
+              align-content: flex-start; }
       @media (max-width: 575.98px) {
         .brk-sc-masonry-three__container {
           -webkit-box-orient: vertical !important;
           -webkit-box-direction: normal !important;
+          -webkit-flex-direction: column !important;
                   flex-direction: column !important; } }
       [class*="brk-sc-masonry_narrow"] .brk-sc-masonry-three__container {
-        align-content: space-between; }
+        -webkit-align-content: space-between;
+                align-content: space-between; }
     .brk-sc-masonry-three__top-content {
       padding: 26px 0 26px 30px;
       max-width: 290px; }
     .brk-sc-masonry-three__bottom-content {
       padding: 26px 26px 26px 0;
       -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
               justify-content: flex-end;
       -webkit-box-align: start;
+      -webkit-align-items: flex-start;
               align-items: flex-start; }
       @media (max-width: 575.98px) {
         .brk-sc-masonry-three__bottom-content {
           -webkit-box-pack: justify !important;
+          -webkit-justify-content: space-between !important;
                   justify-content: space-between !important;
           padding: 26px 26px 80px 26px; } }
       [class*="brk-sc-masonry_narrow"] .brk-sc-masonry-three__bottom-content {
         width: 100%;
         -webkit-box-pack: justify !important;
+        -webkit-justify-content: space-between !important;
                 justify-content: space-between !important;
         padding: 26px; }
       .brk-sc-masonry-three__bottom-content .btn {
@@ -532,3 +551,9 @@
       position: relative; }
     .brk-sc-masonry-slider .swiper-container {
       min-height: 100%; }
+    .brk-sc-masonry-slider .brk-swiper-default-nav {
+      box-shadow: none; }
+    .brk-sc-masonry-slider .swiper-container:hover ~ .brk-swiper-default-pagination .brk-swiper-default-pagination-bullet {
+      background-color: #fff; }
+    .brk-sc-masonry-slider .brk-swiper-default-pagination:hover .brk-swiper-default-pagination-bullet {
+      background-color: var(--brand-primary); }

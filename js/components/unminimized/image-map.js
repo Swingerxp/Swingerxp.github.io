@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.image_map_init = {
     attach: function (context, settings) {      
 
@@ -29,13 +31,13 @@
         absoluteTopParent.css('min-height', absoluteTopHeight);
       };
 
-      window.addEventListener("load", function(event) {
+      $(window).on('load', function() {
         setTimeout(function () {
           absoluteTopIM();
         }, 500);
       });
 
-      $(window).resize(function(){
+      $(window).on('resize', function(){
         absoluteTopIM();
       });
     }

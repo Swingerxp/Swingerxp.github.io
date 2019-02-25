@@ -1,13 +1,13 @@
-
 (function ($) {
-  var defaults = {
-    formWrap: 'brk-form-wrap',
-    formWrapActive: 'brk-form-wrap-active',
-    inputLabel: 'input-label'
-  };
+  'use strict';
 
   $.fn.berserkforms = function (params) {
-    options = $.extend({}, defaults, params);
+    var defaults = {
+      formWrap: 'brk-form-wrap',
+      formWrapActive: 'brk-form-wrap-active',
+      inputLabel: 'input-label'
+    },
+      options = $.extend({}, defaults, params);
 
     var _ = this,
       i = 0;
@@ -19,14 +19,14 @@
 
       $(this).addClass("rendered");
 
-      if (_.attr('placeholder') != undefined) {
+      if (_.attr('placeholder') !== undefined) {
         textPlaceholder = _.attr('placeholder');
       } else {
         textPlaceholder = false;
       }
       _.removeAttr('placeholder');
 
-      if (_.attr('id') != undefined) {
+      if (_.attr('id') !== undefined) {
         imputId = _.attr('id');
       } else {
         imputId = 'brkin-' + i;
@@ -37,26 +37,26 @@
         return '<div class="' + options.formWrap + '"></div>';
       });
 
-      if (_.attr('readonly') == undefined) {
-        if (textPlaceholder != false) {
+      if (_.attr('readonly') === undefined) {
+        if (textPlaceholder !== false) {
           _.parent().append('<label class="' + options.inputLabel + '" for="' + imputId + '">' + textPlaceholder + '</label>');
         }
       }
 
-      if (_.val() != '') {
-        if (_.attr('readonly') == undefined) {
+      if (_.val() !== '') {
+        if (_.attr('readonly') === undefined) {
           _.parent().addClass(options.formWrapActive);
         }
       }
 
-      _.focus(function () {
-        if (_.attr('readonly') == undefined) {
+      _.on('focus', function () {
+        if (_.attr('readonly') === undefined) {
           _.parent().addClass(options.formWrapActive);
         }
       });
 
-      _.blur(function () {
-        if (_.val() == '') {
+      _.on('blur', function () {
+        if (_.val() === '') {
           _.parent().removeClass(options.formWrapActive);
         }
       });
@@ -75,13 +75,16 @@
       var brkForms = '.brk-form-strict [type="text"]:not(.rendered), .brk-form-strict [type="search"]:not(.rendered), .brk-form-strict [type="password"]:not(.rendered), .brk-form-strict [type="email"]:not(.rendered), .brk-form-strict [type="tel"]:not(.rendered), .brk-form-strict textarea:not(.rendered)';
       $(brkForms).berserkforms();
 
-      if (typeof $.fn.styler == 'undefined') {
+      if (typeof $.fn.styler === 'undefined') {
         console.log('Waiting for the styler library');
         setTimeout(Berserk.behaviors.form_controls.attach, settings.timeout_delay, context, settings);
         return;
       }
 
-      if ('select') {
+      var brkSelect     = $('select'),
+          wpDataTables  = $('.wpDataTables select');
+
+      if ((brkSelect.length !== 0) && (wpDataTables.length === 0)) {
         $(context).parent().find('select:not(.rendered)').styler();
       }
 
@@ -111,7 +114,7 @@
         
         $(this).addClass("rendered");
 
-        if (_.attr('type') == 'file') {
+        if (_.attr('type') === 'file') {
           if (_.parents().hasClass('brk-form-strict')) {
             _.wrap(function () {
               return '<label class="' + wrap + '"></label>';
@@ -144,7 +147,7 @@
         var _ = $(this),
           wrap = 'brk-form-checkbox';
         $(this).addClass("rendered");
-        if (_.attr('type') == 'checkbox') {
+        if (_.attr('type') === 'checkbox') {
           _.wrap(function () {
             return '<label class="' + wrap + '"></label>';
           });
@@ -158,7 +161,7 @@
         var _ = $(this),
           wrap = 'brk-form-radio';
         $(this).addClass("rendered");
-        if (_.attr('type') == 'radio') {
+        if (_.attr('type') === 'radio') {
           _.wrap(function () {
             return '<label class="' + wrap + '"></label>';
           });
@@ -178,8 +181,7 @@
           e.preventDefault();
           var formData = $(this).serialize();
           $.getJSON('php/subscribe.php', formData, function (data) {
-            var message = data.status === 'subscribed' ? 'Thanks for subscribing!' : 'Something goes wrong :(';
-            var messageStatus = "<span class='brk-subscribe-message font__family-open-sans font__size-14 line__height-21 opacity-80'>" + message + "</span>";
+            var messageStatus = "<span class='brk-subscribe-message font__family-open-sans font__size-14 line__height-21 opacity-80'>" + data.status + "</span>";
             $form.append(messageStatus);
             setTimeout(function () {
               $form.find('.brk-subscribe-message').fadeOut();
@@ -191,11 +193,12 @@
 
 
       /* --------------- Deleting placeholder focus --------------- */
-      $('input,textarea').focus(function () {
+      var placeholderInput = $('input,textarea');
+      placeholderInput.on('focus', function () {
         $(this).data('placeholder', $(this).attr('placeholder'));
         $(this).attr('placeholder', '');
       });
-      $('input,textarea').blur(function () {
+      placeholderInput.on('blur', function () {
         $(this).attr('placeholder', $(this).data('placeholder'));
       });
       /* ------------- End Deleting placeholder focus ------------- */

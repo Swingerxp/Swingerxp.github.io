@@ -31,11 +31,13 @@
       /* mod: right-text */ }
       .brk-sc-tiles-trend_right-text .brk-sc-tiles-trend__content {
         -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
                 justify-content: flex-end;
         text-align: right; }
         @media (max-width: 767px) {
           .brk-sc-tiles-trend_right-text .brk-sc-tiles-trend__content {
             -webkit-box-pack: start;
+            -webkit-justify-content: flex-start;
                     justify-content: flex-start;
             text-align: left; } }
       .brk-sc-tiles-trend_right-text .brk-sc-tiles-trend__thumbnail {
@@ -43,26 +45,36 @@
       .brk-sc-tiles-trend_right-text .brk-sc-tiles-trend__description {
         padding-right: 78px;
         display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
                 flex-direction: column;
         -webkit-box-align: end;
+        -webkit-align-items: flex-end;
                 align-items: flex-end; }
+        @media (min-width: 1230px) and (max-width: 1365px) {
+          .brk-sc-tiles-trend_right-text .brk-sc-tiles-trend__description {
+            padding-right: 30px; } }
         @media (max-width: 767px) {
           .brk-sc-tiles-trend_right-text .brk-sc-tiles-trend__description {
             display: block;
             padding: 0 20px; } }
       .brk-sc-tiles-trend_right-text .brk-sc-tiles-trend__price-buy {
         display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
         -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
                 justify-content: flex-end;
         -webkit-box-align: center;
+        -webkit-align-items: center;
                 align-items: center; }
         @media (max-width: 767px) {
           .brk-sc-tiles-trend_right-text .brk-sc-tiles-trend__price-buy {
             -webkit-box-pack: center;
+            -webkit-justify-content: center;
                     justify-content: center; } }
         .brk-sc-tiles-trend_right-text .brk-sc-tiles-trend__price-buy [class*="btn"] {
           margin: 0; }
@@ -70,25 +82,33 @@
       /* mod: left-text */ }
       .brk-sc-tiles-trend_left-text .brk-sc-tiles-trend__content {
         -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
                 justify-content: flex-start;
         text-align: left; }
       .brk-sc-tiles-trend_left-text .brk-sc-tiles-trend__thumbnail {
         right: 0; }
       .brk-sc-tiles-trend_left-text .brk-sc-tiles-trend__description {
         padding-left: 78px; }
+        @media (min-width: 1230px) and (max-width: 1365px) {
+          .brk-sc-tiles-trend_left-text .brk-sc-tiles-trend__description {
+            padding-left: 30px; } }
         @media (max-width: 767px) {
           .brk-sc-tiles-trend_left-text .brk-sc-tiles-trend__description {
             padding: 0 20px; } }
       .brk-sc-tiles-trend_left-text .brk-sc-tiles-trend__price-buy {
         display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
         -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
                 justify-content: flex-start;
         -webkit-box-align: center;
+        -webkit-align-items: center;
                 align-items: center; }
         @media (max-width: 767px) {
           .brk-sc-tiles-trend_left-text .brk-sc-tiles-trend__price-buy {
             -webkit-box-pack: center;
+            -webkit-justify-content: center;
                     justify-content: center; } }
         .brk-sc-tiles-trend_left-text .brk-sc-tiles-trend__price-buy [class*="btn"] {
           margin: 0; }
@@ -113,17 +133,21 @@
       z-index: 2;
       height: 100%;
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center; }
       @media (max-width: 767px) {
         .brk-sc-tiles-trend__content {
           padding: 30px 0;
-          flex-wrap: wrap; } }
+          -webkit-flex-wrap: wrap;
+                  flex-wrap: wrap; } }
     .brk-sc-tiles-trend__thumbnail {
       position: absolute;
       bottom: 0;
       width: 40%;
+      min-width: 300px;
       text-align: center;
       padding: 0 15px; }
       @media (min-width: 1200px) and (max-width: 1600px) {
@@ -146,10 +170,11 @@
     .brk-sc-tiles-trend__description {
       width: 60%;
       padding-top: 30px;
-      padding-bottom: 30px; }
-      @media (min-width: 1200px) and (max-width: 1600px) {
+      padding-bottom: 30px;
+      z-index: 2; }
+      @media (min-width: 1230px) and (max-width: 1600px) {
         .brk-sc-tiles-trend__description {
-          width: 75%; } }
+          width: 60%; } }
       @media (max-width: 991px) {
         .brk-sc-tiles-trend__description {
           width: 70%; } }
@@ -159,28 +184,39 @@
           text-align: center; } }
     .brk-sc-tiles-trend__title {
       font-size: 2.25rem;
-      line-height: 60px;
+      line-height: 42px;
+      padding: 9px 0;
       letter-spacing: -0.02em;
       font-weight: 200; }
+      @media (min-width: 1230px) and (max-width: 1365px) {
+        .brk-sc-tiles-trend__title {
+          font-size: 1.875rem;
+          line-height: 36px; } }
       @media (max-width: 767px) {
         .brk-sc-tiles-trend__title {
           font-size: 1.625rem;
-          line-height: 32px; } }
+          line-height: 32px;
+          padding: 0; } }
       .brk-sc-tiles-trend__title strong {
         font-weight: bold; }
     .brk-sc-tiles-trend__text {
       max-width: 450px;
       font-size: 1rem;
       line-height: 26px;
-      margin: 16px 0 44px 0; }
+      margin: 16px 0 34px 0; }
+      @media (min-width: 1230px) and (max-width: 1365px) {
+        .brk-sc-tiles-trend__text {
+          font-size: 0.9375rem;
+          line-height: 22px; } }
       @media (max-width: 767px) {
         .brk-sc-tiles-trend__text {
           max-width: none;
           font-size: 0.875rem;
           line-height: 20px;
-          margin: 16px 0 20px 0; } }
+          margin: 16px 0 10px 0; } }
     .brk-sc-tiles-trend__price-buy {
-      flex-wrap: wrap; }
+      -webkit-flex-wrap: wrap;
+              flex-wrap: wrap; }
       @media (max-width: 575px) {
         .brk-sc-tiles-trend__price-buy {
           display: block !important; } }
@@ -188,10 +224,19 @@
         font-size: 2.75rem;
         line-height: 46px;
         margin-right: 30px; }
+        @media (min-width: 1230px) and (max-width: 1365px) {
+          .brk-sc-tiles-trend__price-buy--price {
+            font-size: 2.375rem; } }
+        @media (min-width: 576px) {
+          .brk-sc-tiles-trend__price-buy--price {
+            margin-top: 10px; } }
         @media (max-width: 575px) {
           .brk-sc-tiles-trend__price-buy--price {
             margin-bottom: 15px;
             margin-right: 0; } }
+    @media (min-width: 576px) {
+      .brk-sc-tiles-trend .btn {
+        margin-top: 10px !important; } }
   .brk-sc-tiles-images {
     /* brk-sc-tiles-images */
     position: relative;
@@ -294,8 +339,10 @@
   .brk-sc-tiles-split {
     /* brk-sc-tiles-split */
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    flex-wrap: wrap; }
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap; }
     .brk-sc-tiles-split__product {
       position: relative;
       width: 100%;
@@ -321,9 +368,12 @@
       @media (max-width: 1199px) {
         .brk-sc-tiles-split__product {
           display: -webkit-box;
+          display: -webkit-flex;
           display: flex;
-          flex-wrap: inherit;
+          -webkit-flex-wrap: inherit;
+                  flex-wrap: inherit;
           -webkit-box-align: center;
+          -webkit-align-items: center;
                   align-items: center; } }
       @media (max-width: 767px) {
         .brk-sc-tiles-split__product {
@@ -430,12 +480,15 @@
       @media (min-width: 1200px) {
         .brk-sc-tiles-split_style-1 .brk-sc-tiles-split__price {
           -webkit-box-pack: end;
+          -webkit-justify-content: flex-end;
                   justify-content: flex-end; } }
       @media (min-width: 768px) {
         .brk-sc-tiles-split__price {
           display: -webkit-box;
+          display: -webkit-flex;
           display: flex;
-          flex-wrap: wrap; } }
+          -webkit-flex-wrap: wrap;
+                  flex-wrap: wrap; } }
       .brk-sc-tiles-split__price--old {
         font-size: 0.875rem;
         font-weight: 300;
@@ -446,9 +499,11 @@
             margin: 0 14px; }
             .brk-sc-tiles-split_style-1 .brk-sc-tiles-split__price--old {
               -webkit-box-ordinal-group: 1;
+              -webkit-order: 0;
                       order: 0; }
             .brk-sc-tiles-split_style-2 .brk-sc-tiles-split__price--old {
               -webkit-box-ordinal-group: 2;
+              -webkit-order: 1;
                       order: 1; } }
       .brk-sc-tiles-split__price--price {
         font-size: 1.3125rem;
@@ -649,10 +704,13 @@
       -webkit-clip-path: polygon(0 86.2%, 100% 0%, 100% 100%, 0 100%);
               clip-path: polygon(0 86.2%, 100% 0%, 100% 100%, 0 100%);
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-align: end;
+      -webkit-align-items: flex-end;
               align-items: flex-end;
       -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
               justify-content: flex-end;
       /* brk-sc-tiles-angle__container */
       /* brk-sc-tiles-angle__container */ }
@@ -715,12 +773,14 @@
       .brk-sc-tiles-angle__bottom .brk-sc-tiles-angle__container {
         padding: 0 64px 16px 0;
         -webkit-box-align: center;
+        -webkit-align-items: center;
                 align-items: center; }
         @media (max-width: 1599px) {
           .brk-sc-tiles-angle__bottom .brk-sc-tiles-angle__container {
             padding: 0 34px 16px 0; } }
       .brk-sc-tiles-angle__bottom .brk-sc-tiles-angle__content {
         -webkit-box-ordinal-group: 0;
+        -webkit-order: -1;
                 order: -1;
         text-align: right;
         margin-top: 160px; }
@@ -735,8 +795,10 @@
       -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      flex-wrap: wrap; }
+      -webkit-flex-wrap: wrap;
+              flex-wrap: wrap; }
       @media (max-width: 991px) {
         .brk-sc-tiles-angle__container {
           padding: 20px	!important;

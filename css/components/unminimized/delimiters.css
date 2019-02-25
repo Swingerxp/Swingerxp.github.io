@@ -99,6 +99,17 @@
 .delimiter__rounded .highlight-underline > .before {
   background: var(--brk-base-2) !important; }
 
+.delimiter__triangle {
+  position: relative; }
+  .delimiter__triangle-elem-img {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+
 .overlay__delimiter-before {
   display: block;
   position: absolute;

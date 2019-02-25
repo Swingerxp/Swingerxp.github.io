@@ -1,4 +1,6 @@
 (function($){
+  'use strict';
+
   $( document ).ready(function() {
 
   /* Open/Close customizer */
@@ -31,7 +33,6 @@
   var brkBgCheck = $('[data-brk-bg-check]');
   $panelOpen.on('click', function (e) {
     e.preventDefault();
-    var $this = $(this);
 
     brkBgCheck.each(function () {
       var $this   = $(this),
@@ -44,19 +45,21 @@
 
 	var themeOptionsColor 			    = $('.brk-theme-options__color'),
 			themeOptionsColorButton	    = themeOptionsColor.find('.brk-theme-options__color-radio'),
-			brkSkinColor						    = $('#brk-skin-color'),
+			//brkSkinColor						    = $('#brk-skin-color'),
+      brkSkinColor                = $('link[id^="brk-skin-color"]'), // WordPress
       dataHtmlSkin                = $('html').data('brk-skin');
 
 	themeOptionsColorButton.each(function () {
 		var $this 									= $(this),
 				themeOptionsColorData		= $this.data('skin');
 
-    if(dataHtmlSkin.indexOf(themeOptionsColorData) + 1) {
+    if(dataHtmlSkin.indexOf(themeOptionsColorData + '.css') + 1) {
       $this.addClass('checked');
     }
 
 		$this.on('click', function () {
-      brkSkinColor.attr('href', 'css/skins/' + themeOptionsColorData + '.css');
+      //brkSkinColor.attr('href', 'css/skins/' + themeOptionsColorData + '.css');
+      brkSkinColor.attr('href', Berserk.settings.project_prefix + 'css/skins/' + themeOptionsColorData + '.css'); // WordPress
 			themeOptionsColorButton.removeClass('checked');
 			$this.addClass('checked');
       $('html').data('brk-skin', themeOptionsColorData + '.css');
@@ -68,8 +71,6 @@
 	/* direction */
 	var $elDir = $('[data-brk-direction]'),
 			$optionsCheckGlobal = $elDir.find('.brk-theme-options__check');
-			//$brkDirectionBootstrap = $('#brk-direction-bootstrap'),
-			//$brkDirectionOffsets = $('#brk-direction-offsets');
 
   $elDir.each(function () {
     var $this 				= $(this),
@@ -82,71 +83,6 @@
     }
 
   });
-
-	/*var detectRtl = function(opt) {
-    var slickInit = $('.slick-initialized');
-    if(opt === 'rtl') {
-      $brkDirectionBootstrap.attr('href', 'css/assets/bootstrap-rtl.css');
-      $brkDirectionOffsets.attr('href', 'css/assets/offsets-rtl.css');
-
-      slickInit.removeClass('rendered');
-      slickInit.parent().removeClass('rendered');
-      slickInit.slick('unslick');
-
-      setTimeout(function () {
-        Berserk.attachBehaviors($('body'), Berserk.settings);
-      },300)
-
-    } else {
-      $brkDirectionBootstrap.attr('href', 'css/assets/bootstrap.css');
-      $brkDirectionOffsets.attr('href', 'css/assets/offsets.css');
-
-      slickInit.removeClass('rendered');
-      slickInit.parent().removeClass('rendered');
-      slickInit.slick('unslick');
-
-      setTimeout(function () {
-        Berserk.attachBehaviors($('body'), Berserk.settings);
-      },300)
-    }
-  };*/
-
-	/*$elDir.each(function () {
-		var $this 				= $(this),
-				$dataDir 			= $this.data('brk-direction'),
-				$optionsCheck 	= $this.find('.brk-theme-options__check');
-
-		$this.on('click', function (e) {
-			e.preventDefault();
-			$('html').attr('dir', $dataDir);
-
-      detectRtl($dataDir);
-
-			$optionsCheckGlobal.removeClass('brk-theme-options__check_active');
-			$optionsCheck.addClass('brk-theme-options__check_active');
-
-      function locationScreen() {
-        var brk_element_header = '.brk-mini-cart, .brk-social-links, .brk-search, .brk-lang, .brk-nav__sub-menu',
-          windowWidth = window.innerWidth || $(window).width();
-        $(brk_element_header).each(function () {
-          var $this = $(this),
-            widthOffset = windowWidth / 2,
-            offset = $this.offset().left;
-
-          if (offset < widthOffset) {
-            $this.removeClass('brk-location-screen-left brk-location-screen-right').addClass('brk-location-screen-left');
-          } else {
-            $this.removeClass('brk-location-screen-left brk-location-screen-right').addClass('brk-location-screen-right');
-          }
-        });
-      }
-
-			setTimeout(function () {
-				locationScreen();
-			}, 500);
-
-		})
-	});*/
   /* end direction */
   
 	/* options border */

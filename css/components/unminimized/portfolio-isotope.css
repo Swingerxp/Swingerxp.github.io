@@ -3,18 +3,21 @@
   @media screen and (max-width: 991px) {
     .brk-grid-config {
       border: none;
-      flex-wrap: wrap; }
+      -webkit-flex-wrap: wrap;
+              flex-wrap: wrap; }
       .brk-grid-config .brk-filters {
         border-bottom: 3px solid #f4f4f4;
         margin-bottom: 20px; }
         .brk-grid-config .brk-filters__item {
           -webkit-box-flex: 1;
+          -webkit-flex-grow: 1;
                   flex-grow: 1;
           text-align: center; } }
   @media screen and (max-width: 767px) {
     .brk-grid-config .brk-filters {
       border-bottom: none;
-      flex-wrap: wrap; }
+      -webkit-flex-wrap: wrap;
+              flex-wrap: wrap; }
       .brk-grid-config .brk-filters__item {
         width: 100%;
         border-bottom: 3px solid #f4f4f4; } }
@@ -23,26 +26,36 @@
   position: relative;
   min-height: 100px; }
   .brk-simple-card__animation-wrapper {
-    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
     width: 100%;
     height: 100%;
     -webkit-transform: scaleX(1) scaleY(1) scaleZ(1) translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
             transform: scaleX(1) scaleY(1) scaleZ(1) translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     will-change: transform; }
   .brk-simple-card__info {
-    position: absolute;
-    left: 0;
-    top: 50%;
     width: 100%;
-    margin-top: -12px;
     opacity: 0;
     -webkit-transition: .3s ease opacity;
     transition: .3s ease opacity;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column; }
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+    padding-left: 25px;
+    padding-right: 25px;
+    z-index: 3; }
   .brk-simple-card__title {
     margin-bottom: 6px; }
   .brk-simple-card__link {
@@ -62,8 +75,6 @@
     @supports not ((-webkit-clip-path: polygon(0 0, 100% 100%, 100% 0)) or (clip-path: polygon(0 0, 100% 100%, 100% 0))) {
       .brk-simple-card__link {
         border-bottom-left-radius: 50px; } }
-    .brk-simple-card__link:hover {
-      text-transform: scale(1.3); }
   .brk-simple-card__img {
     position: absolute;
     left: 0;
@@ -81,6 +92,7 @@
     top: 0;
     width: 100%;
     height: 100%;
+    position: absolute;
     opacity: 0;
     -webkit-transition: .3s ease opacity;
     transition: .3s ease opacity;
@@ -146,8 +158,10 @@
     right: 5px;
     bottom: 60px;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center;
     padding: 14px 30px 14px 34px;
     background-image: -webkit-gradient(linear, right top, left top, from(var(--brk-base-2)), to(var(--brk-base-5)));
@@ -163,8 +177,10 @@
     right: 7px;
     bottom: 60px;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center;
     padding: 12px 55px 12px 34px;
     background-color: transparent;
@@ -179,7 +195,10 @@
   .brk-btn-swipe-card__caption {
     opacity: 0;
     -webkit-transition: .3s ease opacity;
-    transition: .3s ease opacity; }
+    transition: .3s ease opacity;
+    max-width: 220px; }
+    .brk-grid__item_width-2 .brk-btn-swipe-card__caption {
+      max-width: 250px; }
   .brk-btn-swipe-card .brk-abs-overlay {
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
@@ -201,13 +220,16 @@
 
 .brk-filters_style-1 {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
           flex-grow: 1; }
   .brk-filters_style-1 .brk-filters__item {
     padding-left: 22px;
     padding-right: 20px;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center;
     position: relative;
     cursor: pointer; }

@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.pagination_init = {
     attach: function (context, settings) {
       (function(){

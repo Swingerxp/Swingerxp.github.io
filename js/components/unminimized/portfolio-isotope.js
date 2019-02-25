@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.portfolio_isotope_init = {
     attach: function (context, settings) {
       if (typeof Isotope !== 'function' && typeof $.fn.brk_hover3d !== 'function' || typeof anime !== 'function') {
@@ -19,7 +21,7 @@
           $tabletGridCols = $grid.attr('data-grid-cols-tablet')
         }
 
-        function setCols(windowSize) {
+        var setCols = function (windowSize) {
           if (windowSize > 992) {
             $gridWidth = 100 / $gridCols + '%';
             $doubleGridWidth = 100 / $gridCols * 2 + '%';
@@ -39,11 +41,11 @@
             $grid.find('.brk-grid__item').css('width', $gridWidth);
             $grid.find('.brk-grid__item_width-2').css('width', $doubleGridWidth);
           }
-        }
+        };
 
         setCols($currentWidth);
 
-        $(window).resize(function () {
+        $(window).on('resize', function () {
           setCols($(window).width());
         });
 
@@ -65,19 +67,21 @@
           });
 
           $grid.find('img').css('display', 'block');
-        }, 400)
+        }, 400);
 
         // each filter count
 
         $('.brk-filters:not(.rendered)', context).find('.brk-filters__item').each(function () {
-          var filterElem = $(this);
-          var filterName = $(this).attr('data-filter');
-          if (filterName && filterName != '*') {
-            var elemCount = $grid.find(filterName).length;
+          var filterElem = $(this),
+              filterName = filterElem.attr('data-filter'),
+              elemCount;
+
+          if (filterName && filterName !== '*') {
+            elemCount = $grid.find(filterName).length;
             filterElem.find('.brk-filters__count').html(elemCount);
           }
-          if (filterName && filterName == '*') {
-            var elemCount = $grid.find('.brk-grid__item').length;
+          if (filterName && filterName === '*') {
+            elemCount = $grid.find('.brk-grid__item').length;
             filterElem.find('.brk-filters__count').html(elemCount);
           }
         });
@@ -101,13 +105,13 @@
         $(".brk-filters:not(.rendered)", context).addClass("rendered");
 
         var sortChanger = $('#brk-grid-sort');
-        function setSelectWidth(){
+        var setSelectWidth = function (){
           $("#brk-select__sizer-option").html($('#brk-grid-sort option:selected').text());
           $("#brk-grid-sort").width($("#brk-select__sizer").width() + 15);
-        }
+        };
         if(sortChanger.length){
           setSelectWidth();
-          sortChanger.change(function () {            
+          sortChanger.on('change', function () {
             var sortValue = $(this).val();
             iso.arrange({
               sortBy: sortValue

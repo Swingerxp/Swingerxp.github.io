@@ -5,6 +5,15 @@
   will-change: background-position;
   -webkit-transform: translateZ(0);
           transform: translateZ(0); }
+  .parallax-bg .form-control {
+    height: auto; }
+
+.brk-paraxify {
+  position: relative;
+  background: fixed center center;
+  background-size: cover !important; }
+  .brk-paraxify .form-control {
+    height: auto; }
 
 .corner__wrap,
 .circle__wrap,
@@ -376,6 +385,9 @@
     margin: 0;
     width: 33.3%;
     float: left; }
+    @media (max-width: 575px) {
+      .wing__wrap .countdown .countdown__section {
+        border-left: none; } }
     .wing__wrap .countdown .countdown__section:first-child {
       border: none; }
   .wing__wrap .countdown__wrapper {
@@ -429,17 +441,22 @@
 .full-height {
   height: 100vh;
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
           align-items: center; }
   .full-height > div {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
             flex-direction: column;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     height: auto;
     -webkit-box-align: start;
+    -webkit-align-items: flex-start;
             align-items: flex-start; }
   .full-height.round__wrap.content__side-left .parallax__bg-shape-lg {
     left: 0; }
@@ -556,10 +573,13 @@
     margin: 0;
     padding: 0;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     border-radius: 100%;
     background-color: #ffffff;

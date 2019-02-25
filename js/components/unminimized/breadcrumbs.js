@@ -1,8 +1,10 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.ranged_slider_init = {
     attach: function (context, settings) {
 
-      if($('#slider').length < 1){
+      if($('#slider:not(.rendered)').length < 1){
         return;
       }
 
@@ -10,9 +12,9 @@
         console.log('Waiting for the slider library');
         setTimeout(Berserk.behaviors.ranged_slider_init.attach, settings.timeout_delay, context, settings);
         return;
-      }  
-      
-      $("#slider").slider({
+      }
+
+      $(context).parent().find('#slider:not(.rendered)').addClass('rendered').slider({
         range: true,
         min: 1990,
         max: 2018,
@@ -25,22 +27,36 @@
         }
       });
 
-      $("input.sliderValue").change(function () {
+      $("input.sliderValue").on('change', function () {
         var $this = $(this);
         $("#slider").slider("values", $this.data("index"), $this.val());
       });
 
-      $('button#filter-trigger').on('click', function () {
-        this.classList.toggle('closed');
-        this.nextElementSibling.classList.toggle('closed');
-      });
-
-      $('button#categories-list-trigger').on('click', function () {
-        var filtersContainer = this.parentNode.parentNode;
-        filtersContainer.querySelector('#filter-trigger').classList.add('closed');
-        filtersContainer.querySelector('.filter').classList.add('closed');
-      });
-
     }
+  };
+
+  function filterTrigger() {
+    $('#filter-trigger').each(function () {
+      var $this = $(this);
+
+      $this.on('click', function () {
+        $(this).toggleClass('closed');
+        $(this).next().toggleClass('closed');
+      });
+    });
   }
+
+  function categoriesListTrigger() {
+    $('button#categories-list-trigger').on('click', function () {
+      var filtersContainer = this.parentNode.parentNode;
+      filtersContainer.querySelector('#filter-trigger').classList.add('closed');
+      filtersContainer.querySelector('.filter').classList.add('closed');
+    });
+  }
+
+  $(window).on('load', function(){
+    filterTrigger();
+    categoriesListTrigger();
+  });
+
 })(jQuery);

@@ -88,3 +88,9 @@ button, .btn {
 }*/
 input[type="search"] {
   box-sizing: border-box !important; }
+
+[type=reset],
+[type=submit],
+button,
+html [type=button] {
+  -webkit-appearance: none; }

@@ -40,9 +40,11 @@
     opacity: 1; }
   .brk-ic-left-slide__wrapper {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
             flex-direction: column;
     position: absolute;
     bottom: 0;
@@ -123,6 +125,7 @@
   height: 500px;
   color: #fff;
   -webkit-box-flex: 0;
+  -webkit-flex: none;
           flex: none;
   -webkit-perspective: 1000px;
           perspective: 1000px; }
@@ -212,9 +215,11 @@
   padding: 63px 50px 54px 60px;
   text-align: left;
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
           flex-direction: column; }
   .brk-tilter__caption--1 .brk-tilter__title {
     text-transform: uppercase; }
@@ -223,7 +228,8 @@
     margin-left: 2px;
     margin-top: 1px;
     text-transform: uppercase;
-    align-self: flex-start; }
+    -webkit-align-self: flex-start;
+            align-self: flex-start; }
   .brk-tilter__caption--1 .brk-tilter__description {
     margin-top: auto; }
     [dir="rtl"] .brk-tilter__caption--1 .brk-tilter__description {
@@ -231,6 +237,7 @@
   .brk-tilter__caption--2 {
     padding: 69px 69px 65px 69px;
     -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
             justify-content: flex-end; }
     .brk-tilter__caption--2 .brk-tilter__title {
       margin-bottom: 15px; }
@@ -284,7 +291,8 @@
   padding: 4px 5px 2px 6px;
   margin-left: 2px;
   text-transform: uppercase;
-  align-self: flex-start;
+  -webkit-align-self: flex-start;
+          align-self: flex-start;
   margin-bottom: 9px; }
 
 .brk-tilter--6 .brk-tilter__caption {
@@ -357,6 +365,7 @@
 
 .brk-tilter--8 .brk-tilter__caption {
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
           justify-content: center; }
   .brk-tilter--8 .brk-tilter__caption .brk-tilter__title {
     margin-top: auto;
@@ -370,9 +379,11 @@
 
 .brk-ip-angle {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
           flex-direction: column;
   position: relative;
   width: 100%;
@@ -408,9 +419,11 @@
             clip-path: polygon(0 0, 100% 77px, 100% 100%, 0% 100%);
     z-index: 2;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
             flex-direction: column;
     padding-top: 72px;
     padding-left: 40px;
@@ -422,7 +435,8 @@
       padding-right: 40px; }
   .brk-ip-angle__subtitle {
     padding: 3px 4px 2px 5px;
-    align-self: flex-start;
+    -webkit-align-self: flex-start;
+            align-self: flex-start;
     margin-bottom: 5px;
     margin-left: 1px;
     color: var(--white); }
@@ -445,10 +459,13 @@
     cursor: pointer;
     z-index: 3;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center;
     padding: 7px;
     font-weight: 700;
@@ -460,9 +477,11 @@
 
 .brk-ip-simple {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
           flex-direction: column;
   position: relative;
   width: 100%;

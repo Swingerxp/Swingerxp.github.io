@@ -159,7 +159,8 @@
       background: no-repeat center center;
       background-size: cover; }
       .brk-bordered-theme .flip-box__split .flip__back {
-        border-radius: var(--b-radius); }
+        border-radius: var(--b-radius);
+        overflow: hidden; }
     .flip-box__split-overlay {
       position: absolute;
       top: 0;
@@ -169,9 +170,11 @@
       z-index: 1; }
     .flip-box__split-content {
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
               flex-direction: column;
       position: absolute;
       top: 0;
@@ -179,6 +182,8 @@
       bottom: 0;
       left: 0;
       z-index: 2; }
+      .flip-box__split-content a {
+        text-decoration: none !important; }
     .flip-box__split-img {
       background: var(--text-base-color-3) no-repeat center center;
       background-size: contain;
@@ -212,8 +217,10 @@
       padding-right: 30px;
       overflow-y: auto;
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
               flex-grow: 1; }
       [dir=rtl] .flip-box__split-list {
         padding-left: 30px;
@@ -236,7 +243,9 @@
         padding-left: 20px; }
       .flip-box__split-list ul,
       .flip-box__split-list p {
-        max-height: 100%; }
+        max-height: 100%;
+        margin-top: auto;
+        margin-bottom: auto; }
       .flip-box__split-list li {
         padding: 5px 0 5px 35px;
         position: relative; }
@@ -382,15 +391,19 @@
     width: 100%;
     height: auto;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
             flex-direction: row-reverse;
     -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
             justify-content: space-between; }
     [dir="rtl"] .brk-sc-card-labels_top-labels {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
               flex-direction: row; }
     .brk-sc-card-labels_top-labels .brk-sc-card-label {
       width: 86px;
@@ -431,10 +444,13 @@
         width: 122px;
         height: 28px;
         display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
         -webkit-box-align: center;
+        -webkit-align-items: center;
                 align-items: center;
         -webkit-box-pack: center;
+        -webkit-justify-content: center;
                 justify-content: center;
         z-index: 9; }
       .brk-sc-card-labels_top-labels .brk-sc-card-label:nth-child(1) .brk-sc-card-label__text {
@@ -457,18 +473,23 @@
     top: 86px;
     width: auto;
     display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: inline-flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
             flex-direction: column; }
     .brk-sc-card-labels_side-labels .brk-sc-card-label {
       padding: 8px 10px 10px 10px;
       display: -webkit-inline-box;
+      display: -webkit-inline-flex;
       display: inline-flex;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center;
       min-width: 60px;
       -webkit-box-pack: center;
+      -webkit-justify-content: center;
               justify-content: center;
       position: relative; }
       .brk-sc-card-labels_side-labels .brk-sc-card-label__additional-1 {
@@ -497,25 +518,29 @@
     top: 86px;
     width: auto;
     display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: inline-flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
             flex-direction: column; }
     .brk-sc-card-labels_side-labels-cornered .brk-sc-card-label {
       padding: 8px 10px 10px 10px;
       display: -webkit-inline-box;
+      display: -webkit-inline-flex;
       display: inline-flex;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center;
       min-width: 60px;
       -webkit-box-pack: center;
+      -webkit-justify-content: center;
               justify-content: center;
       position: relative; }
       .brk-sc-card-labels_side-labels-cornered .brk-sc-card-label__additional-1 {
         position: absolute;
         display: inline-block;
         height: 100%;
-        width: 12px;
         -webkit-clip-path: polygon(0 1%, 100% 0, 100% 100%, 0 100%, 100% 50%);
                 clip-path: polygon(0 1%, 100% 0, 100% 100%, 0 100%, 100% 50%);
         top: 0;
@@ -569,9 +594,11 @@
     height: 100%; }
   .flip__back {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
             flex-direction: column;
     background-color: #ffffff; }
   .flip__front {

@@ -1,13 +1,21 @@
 html.brk-preloader:before, html.brk-preloader:after {
-  -webkit-transition-duration: 1s;
-          transition-duration: 1s;
   position: fixed !important; }
 
 html.brk-preloader:before {
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
   z-index: 1002; }
 
 html.brk-preloader:after {
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
   z-index: 1003; }
+
+html.brk-preloader:after {
+  width: 60px;
+  height: 60px;
+  background: url(../../img/page-preloader.gif) no-repeat center center;
+  background-size: contain; }
 
 .brk-preloader {
   position: relative;
@@ -43,14 +51,14 @@ html.brk-preloader:after {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    width: 87px;
-    height: 87px;
+    width: 77px;
+    height: 77px;
     background: url(../../img/preloader.gif) no-repeat center center;
-    background-size: 100%;
+    background-size: contain;
     opacity: 1;
     visibility: visible;
-    -webkit-transition-property: opacity, visibility;
-    transition-property: opacity, visibility;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
     z-index: 2; }
     [data-x-mode="true"] .brk-preloader:after {
       display: none; }

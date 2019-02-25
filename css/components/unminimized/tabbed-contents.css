@@ -40,10 +40,13 @@
           display: none; } }
     .brk-tabs_tabbed-icon--header {
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
               justify-content: space-between;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center;
       padding-right: 20px;
       padding-left: 45px; }
@@ -51,11 +54,13 @@
         .brk-tabs_tabbed-icon--header {
           padding: 0;
           -webkit-box-pack: center;
+          -webkit-justify-content: center;
                   justify-content: center; } }
       .brk-tabs_tabbed-icon--header:before {
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08), inset 0 -3px var(--brk-secondary-3); }
       .brk-tabs_tabbed-icon--header .brk-tabs-nav {
         display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
         position: relative;
         z-index: 2;
@@ -67,8 +72,10 @@
           .brk-tabs_tabbed-icon--header .brk-tabs-nav {
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
                     flex-direction: column;
             -webkit-box-align: start;
+            -webkit-align-items: flex-start;
                     align-items: flex-start;
             padding: 5px 0; } }
         .brk-tabs_tabbed-icon--header .brk-tabs-nav .brk-tab {
@@ -138,13 +145,17 @@
       padding: 40px 40px 70px 40px; }
   .brk-tabs_tabbed-large-icon .brk-tabs-nav {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center; }
     @media (max-width: 575px) {
       .brk-tabs_tabbed-large-icon .brk-tabs-nav {
         -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
                 justify-content: flex-start;
         padding: 5px 0; } }
   .brk-tabs_tabbed-large-icon .brk-tab {
@@ -160,7 +171,8 @@
     @media (max-width: 575px) {
       .brk-tabs_tabbed-large-icon .brk-tab {
         padding: 5px 10px 5px 25px;
-        flex-basis: 50%;
+        -webkit-flex-basis: 50%;
+                flex-basis: 50%;
         max-width: 50%;
         text-align: left; } }
     .brk-tabs_tabbed-large-icon .brk-tab:hover {
@@ -227,11 +239,15 @@
       -webkit-transform: translateY(50%);
               transform: translateY(50%);
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+              flex-wrap: wrap;
       -webkit-box-pack: center;
+      -webkit-justify-content: center;
               justify-content: center;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center;
       margin-left: auto;
       margin-right: auto;
@@ -246,6 +262,7 @@
       @media (max-width: 767px) {
         .brk-tabs_tabbed-filter .brk-tabs-nav {
           -webkit-box-pack: start;
+          -webkit-justify-content: flex-start;
                   justify-content: flex-start;
           padding: 5px 10px; } }
       @media (max-width: 575px) {
@@ -254,7 +271,7 @@
                   transform: translateY(0);
           margin-bottom: -40px; } }
       .brk-tabs_tabbed-filter .brk-tabs-nav:hover .brk-tab:not(:hover) {
-        color: rgba(var(--brand-primary-rgb), 0.4);
+        color: rgba(var(--brand-primary-rgb), 0.8);
         background-color: transparent;
         box-shadow: none; }
       .brk-tabs_tabbed-filter .brk-tabs-nav:hover .brk-tab.active {
@@ -272,9 +289,15 @@
       @media (max-width: 767px) {
         .brk-tabs_tabbed-filter .magic-line {
           display: none !important; } }
+    .brk-tabs_tabbed-filter .brk-tabs-nav_dark:hover .brk-tab:not(:hover) {
+      color: #000; }
+    .brk-tabs_tabbed-filter .brk-tabs-nav_dark .brk-tab {
+      color: #000; }
+    .brk-tabs_tabbed-filter .brk-tabs-nav_dark .magic-line {
+      box-shadow: none; }
     .brk-tabs_tabbed-filter .brk-tab {
       line-height: 54px;
-      color: rgba(var(--brand-primary-rgb), 0.4);
+      color: rgba(var(--brand-primary-rgb), 0.8);
       cursor: pointer;
       padding: 0 35px;
       position: relative;
@@ -285,19 +308,21 @@
       @media (max-width: 767px) {
         .brk-tabs_tabbed-filter .brk-tab {
           max-width: 50%;
-          flex-basis: 50%;
+          -webkit-flex-basis: 50%;
+                  flex-basis: 50%;
           line-height: 42px;
           text-align: center; } }
       @media (max-width: 479px) {
         .brk-tabs_tabbed-filter .brk-tab {
-          flex-basis: 100%;
+          -webkit-flex-basis: 100%;
+                  flex-basis: 100%;
           max-width: 100%; } }
       .brk-tabs_tabbed-filter .brk-tab:hover, .brk-tabs_tabbed-filter .brk-tab.active {
         color: #fff; }
         @media (max-width: 767px) {
           .brk-tabs_tabbed-filter .brk-tab:hover, .brk-tabs_tabbed-filter .brk-tab.active {
             background-color: var(--brand-primary);
-            box-shadow: 0 5px 16px rgba(var(--brand-primary-rgb), 0.5); } }
+            box-shadow: 0 5px 16px rgba(var(--brand-primary-rgb), 0.8); } }
       .brk-tabs_tabbed-filter .brk-tab.no-hover {
         color: var(--brand-primary); }
       .brk-tabs_tabbed-filter .brk-tab i {
@@ -325,7 +350,7 @@
     .brk-tabs_tabbed-filter .brk-tab-item {
       position: relative;
       z-index: 2;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.7);
       padding: 112px 0 58px; }
       @media (max-width: 767px) {
         .brk-tabs_tabbed-filter .brk-tab-item {
@@ -346,9 +371,12 @@
     background-color: #fdfdfd;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     z-index: 9; }
     .brk-bordered-theme .brk-tabs_tabbed-intro .brk-tabs-nav {
@@ -361,19 +389,23 @@
         min-height: 1px;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
                 flex-direction: column;
         padding: 0;
         -webkit-transform: translateY(0);
                 transform: translateY(0);
         margin-bottom: -50px; } }
-    .brk-tabs_tabbed-intro .brk-tabs-nav:hover .brk-tab:not(:hover):before {
-      opacity: 0; }
+    .brk-tabs_tabbed-intro .brk-tabs-nav:hover .brk-tab:not(:hover) {
+      color: rgba(var(--brand-primary-rgb), 0.25); }
+      .brk-tabs_tabbed-intro .brk-tabs-nav:hover .brk-tab:not(:hover):before {
+        opacity: 0; }
   .brk-tabs_tabbed-intro .brk-tab {
-    color: rgba(var(--brand-primary-rgb), 0.25);
+    color: var(--brand-primary);
     cursor: pointer;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
             flex-grow: 1;
     position: relative;
     padding-top: 18px;
@@ -443,7 +475,7 @@
           margin-right: 8px; } }
     .brk-tabs_tabbed-intro .brk-tab span {
       display: block;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1rem;
       margin-top: 15px;
       letter-spacing: 0.01em;
@@ -467,7 +499,7 @@
   .brk-tabs_tabbed-intro .brk-tab-item {
     position: relative;
     z-index: 2;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.9);
     padding: 140px 0 64px; }
     @media (max-width: 767px) {
       .brk-tabs_tabbed-intro .brk-tab-item {
@@ -493,12 +525,15 @@
                 transform: translateY(calc(50% + 70px)); } }
   .brk-tabs_tabbed-icons-gradient .brk-tabs-nav {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
             justify-content: space-between; }
     @media screen and (max-width: 768px) {
       .brk-tabs_tabbed-icons-gradient .brk-tabs-nav {
-        flex-wrap: wrap; } }
+        -webkit-flex-wrap: wrap;
+                flex-wrap: wrap; } }
   .brk-tabs_tabbed-icons-gradient .brk-tab {
     text-align: center;
     position: relative;
@@ -510,6 +545,7 @@
     padding-left: 15px;
     padding-right: 15px;
     -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
             flex-grow: 1;
     width: 100%; }
     @media (max-width: 768px) {

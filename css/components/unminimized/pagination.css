@@ -18,6 +18,7 @@
   .brk-pagination-one .nav-links {
     font-weight: 600;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     position: relative;
     width: 100%;
@@ -112,6 +113,7 @@
   .brk-pagination-two .nav-links {
     font-weight: 600;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     position: relative;
     width: 100%; }
@@ -173,8 +175,10 @@
   .brk-pagination-three .nav-links {
     font-weight: 600;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     position: relative;
     width: 100%;
@@ -266,8 +270,10 @@
   .brk-pagination-four .nav-links {
     font-weight: 600;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     position: relative;
     width: 100%;
@@ -308,8 +314,7 @@
       visibility: hidden;
       -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
-      border: 2px solid var(--brand-primary);
-      box-shadow: 0 5px 16px rgba(var(--white-rgb), 0.1); }
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12); }
       @media (max-width: 575px) {
         .brk-pagination-four .page-numbers:after {
           width: 38px;
@@ -317,14 +322,18 @@
           top: 50%;
           -webkit-transform: translate(-50%, -50%);
                   transform: translate(-50%, -50%); } }
-    .brk-pagination-four .page-numbers:hover:after {
-      opacity: 1;
-      visibility: visible; }
-    .brk-pagination-four .page-numbers.current:hover {
-      color: var(--brk-dark-base); }
-    .brk-pagination-four .page-numbers.current:after {
-      opacity: 1;
-      visibility: visible; }
+    .brk-pagination-four .page-numbers:hover {
+      color: var(--brand-primary); }
+      .brk-pagination-four .page-numbers:hover:after {
+        opacity: 1;
+        visibility: visible; }
+    .brk-pagination-four .page-numbers.current {
+      color: var(--brand-primary); }
+      .brk-pagination-four .page-numbers.current:hover {
+        color: var(--brk-dark-base); }
+      .brk-pagination-four .page-numbers.current:after {
+        opacity: 1;
+        visibility: visible; }
     .brk-pagination-four .page-numbers.dots {
       padding: 0;
       margin: 0; }
@@ -378,8 +387,10 @@
   .brk-pagination-five .nav-links {
     font-weight: 300;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     position: relative;
     width: 100%;
@@ -482,8 +493,10 @@
   .brk-pagination-six .nav-links {
     font-weight: 600;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     position: relative;
     width: 100%;
@@ -577,8 +590,10 @@
   .brk-pagination-seven .nav-links {
     font-weight: 600;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     width: 100%; }
     @media (max-width: 575px) {
@@ -662,14 +677,18 @@
   .brk-pagination-eight .pagination {
     border-radius: 0;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center; }
   .brk-pagination-eight .nav-links {
     font-weight: 600;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     height: 52px;
     border-radius: 26px;
@@ -801,8 +820,10 @@
         font-weight: 600; }
   .brk-pagination-center {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center; }
     .brk-pagination-center .brk-prev-link,
     .brk-pagination-center .brk-next-link {
@@ -855,8 +876,10 @@
         position: relative; }
   .brk-pagination-large {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
             justify-content: space-between;
     position: relative; }
     .brk-pagination-large:before {

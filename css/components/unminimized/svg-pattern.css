@@ -202,3 +202,8 @@
     background-position-y: -1px; }
   .brk-svg-pattern-container-23.brk-svg-pattern-container_bottom {
     background-position-y: -19px; }
+
+.brk-svg-pattern-container-24 {
+  height: 150px; }
+  .brk-svg-pattern-container-24 svg {
+    top: 2px; }

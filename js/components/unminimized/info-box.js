@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.info_box_init = {
     attach: function (context, settings) {
@@ -6,19 +7,15 @@
       var wave_hover = $(context).parent().find(".wave-hover:not(.rendered)").addClass("rendered");
       if (wave_hover.length) {
         wave_hover.each(function () {
-          var it = $(this);
-          var wh_delay_attr = it.data("wh-delay") * 1000;
-          if (!isNaN(parseFloat(wh_delay_attr))) {
-            var wh_delay = wh_delay_attr;
-          } else {
-            var wh_delay = 1000;
-          }
-          var wh_speed_attr = it.data("wh-speed") * 1000;
-          if (!isNaN(parseFloat(wh_speed_attr))) {
-            var wh_speed = wh_speed_attr;
-          } else {
-            var wh_speed = 1000;
-          }
+          var it = $(this),
+            wh_delay_attr = it.data("wh-delay") * 1000,
+            wh_speed_attr = it.data("wh-speed") * 1000,
+            wh_delay, wh_speed;
+
+          wh_delay = !isNaN(parseFloat(wh_delay_attr)) ? wh_delay_attr : 1000;
+
+          wh_speed = !isNaN(parseFloat(wh_speed_attr)) ? wh_speed_attr : 1000;
+
           var wh_repeat = it.data("wh-repeat");
           var wh = it.find(".wpb_column");
           var wh_len = wh.length;

@@ -11,13 +11,16 @@
 
 .brs-portfolio-carousel-item .slick-dots {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
           justify-content: center;
   margin-top: 50px; }
 
 .brs-portfolio-categories-item {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   position: relative;
   height: 300px;

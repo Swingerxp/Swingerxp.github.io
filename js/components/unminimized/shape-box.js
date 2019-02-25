@@ -1,7 +1,6 @@
-// =================================================================================
-// Shape box shape
-// =================================================================================
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.shpa_box_init = {
     attach: function (context, settings) {
 
@@ -20,7 +19,7 @@
           });
         });
 
-        window.addEventListener('load', function () {
+        $(window).on('load', function () {
           $(window).trigger("resize");
         });
 

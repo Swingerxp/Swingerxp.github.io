@@ -1,13 +1,13 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.alerts_init = {
     attach: function (context, settings) {
-      $window = $(window);
       var $alert = $(context).parent().find('.alert:not(.rendered)');
       $alert.each(function () {
         $alert.addClass('rendered');
         var $self = {};
-        $window.on('scroll', function () {
+        $(window).on('scroll', function () {
           $alert.each(function () {
             $self = $(this);
             $self = $(this);

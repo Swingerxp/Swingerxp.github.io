@@ -68,6 +68,7 @@
   .brk-form-strict [type="password"],
   .brk-form-strict [type="email"],
   .brk-form-strict [type="tel"] {
+    width: 100%;
     height: 54px;
     border: 0;
     border-radius: 0;
@@ -90,7 +91,8 @@
       line-height: 14px;
       -webkit-transition: all .4s ease-in-out;
       transition: all .4s ease-in-out;
-      color: rgba(var(--brk-dark-base-rgb), 0.4); }
+      color: #a2a5ad;
+      white-space: nowrap; }
     .brk-form-strict [type="text"][disabled],
     .brk-form-strict [type="search"][disabled],
     .brk-form-strict [type="password"][disabled],
@@ -128,13 +130,14 @@
     .brk-form-strict textarea + .input-label {
       position: absolute;
       top: 21px;
-      left: 26px;
+      left: 21px;
       display: block;
       font-size: 0.875rem;
       line-height: 14px;
       -webkit-transition: all .4s ease-in-out;
       transition: all .4s ease-in-out;
-      color: rgba(var(--brk-dark-base-rgb), 0.4); }
+      color: #a2a5ad;
+      white-space: nowrap; }
     .brk-form-strict textarea.bordered-bottom {
       border-left: 0;
       border-top: 0;
@@ -398,6 +401,7 @@
     position: relative; }
     .brk-form-row .brk-form-wrap {
       -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
               flex-grow: 1; }
     .brk-form-wrap .input-label {
       cursor: text; }
@@ -415,14 +419,16 @@
         top: 0;
         left: 12px;
         font-size: 0.75rem;
-        letter-spacing: -.06em; }
+        letter-spacing: -.06em;
+        white-space: nowrap; }
     .brk-form-wrap-active textarea {
       border: 1px solid var(--brand-primary); }
       .brk-form-wrap-active textarea + .input-label {
         top: -25px;
         left: 12px;
         font-size: 0.75rem;
-        letter-spacing: -.06em; }
+        letter-spacing: -.06em;
+        white-space: nowrap; }
   .brk-form-round .brk-form-label {
     display: block;
     width: 100%;
@@ -813,6 +819,7 @@
   .brk-form-transparent .brk-form-wrap {
     margin-top: 0;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex; }
   .brk-form-transparent .brk-form-label {
     display: block;
@@ -1210,34 +1217,34 @@
   .brk-form-transparent_dark [type="password"],
   .brk-form-transparent_dark [type="email"],
   .brk-form-transparent_dark [type="tel"] {
-    color: var(--text-base-color-1); }
+    color: #434343; }
     .brk-form-transparent_dark [type="text"]::-webkit-input-placeholder,
     .brk-form-transparent_dark [type="search"]::-webkit-input-placeholder,
     .brk-form-transparent_dark [type="password"]::-webkit-input-placeholder,
     .brk-form-transparent_dark [type="email"]::-webkit-input-placeholder,
     .brk-form-transparent_dark [type="tel"]::-webkit-input-placeholder {
-      color: var(--text-base-color-1);
+      color: #434343;
       opacity: 1; }
     .brk-form-transparent_dark [type="text"]::-ms-input-placeholder,
     .brk-form-transparent_dark [type="search"]::-ms-input-placeholder,
     .brk-form-transparent_dark [type="password"]::-ms-input-placeholder,
     .brk-form-transparent_dark [type="email"]::-ms-input-placeholder,
     .brk-form-transparent_dark [type="tel"]::-ms-input-placeholder {
-      color: var(--text-base-color-1);
+      color: #434343;
       opacity: 1; }
     .brk-form-transparent_dark [type="text"]:-ms-input-placeholder,
     .brk-form-transparent_dark [type="search"]:-ms-input-placeholder,
     .brk-form-transparent_dark [type="password"]:-ms-input-placeholder,
     .brk-form-transparent_dark [type="email"]:-ms-input-placeholder,
     .brk-form-transparent_dark [type="tel"]:-ms-input-placeholder {
-      color: var(--text-base-color-1);
+      color: #434343;
       opacity: 1; }
     .brk-form-transparent_dark [type="text"]::placeholder,
     .brk-form-transparent_dark [type="search"]::placeholder,
     .brk-form-transparent_dark [type="password"]::placeholder,
     .brk-form-transparent_dark [type="email"]::placeholder,
     .brk-form-transparent_dark [type="tel"]::placeholder {
-      color: var(--text-base-color-1);
+      color: #434343;
       opacity: 1; }
   .brk-form-btn-inside {
     position: relative; }
@@ -1253,10 +1260,13 @@
       height: 41px;
       border-radius: 50%;
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center;
       -webkit-box-pack: center;
+      -webkit-justify-content: center;
               justify-content: center;
       background-image: linear-gradient(10deg, var(--brand-primary), var(--brk-base-3)); }
       .brk-form-btn-inside button i {
@@ -1401,7 +1411,10 @@ div.wpcf7 .ajax-loader {
   border: none;
   padding: 0;
   margin: 0 0 0 4px;
-  vertical-align: middle; }
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 div.wpcf7 .ajax-loader.is-active {
   visibility: visible; }
@@ -1435,11 +1448,13 @@ div.wpcf7 input[type="file"]:disabled {
   margin-top: 0;
   margin-right: 30px;
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
           flex-grow: 1; }
 
 @media screen and (max-width: 992px) {
   .brk-strict-transparent-form {
-    flex-wrap: wrap; }
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap; }
     .brk-strict-transparent-form input[type=text] {
       margin-right: 0; }
     .brk-strict-transparent-form .brk-form-wrap {
@@ -1451,3 +1466,47 @@ div.wpcf7 input[type="file"]:disabled {
       margin-right: 0; } }
 
 /* Logistic Demo Form */
+.comment-subscription-form {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  margin: 33px 15px 0;
+  cursor: pointer; }
+  .comment-subscription-form input {
+    display: none; }
+  .comment-subscription-form input:checked + .subscribe-label:before {
+    border-color: var(--brand-primary); }
+  .comment-subscription-form input:checked + .subscribe-label:after {
+    opacity: 1; }
+  .comment-subscription-form .subscribe-label {
+    font-size: 0.875rem;
+    line-height: 26px;
+    padding-left: 30px;
+    cursor: pointer;
+    color: var(--brk-dark-base);
+    position: relative; }
+    .brk-form-strict .comment-subscription-form .subscribe-label {
+      display: inline-block !important; }
+    .comment-subscription-form .subscribe-label:before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      display: block;
+      -webkit-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+      border: 1px solid #e7e7e7;
+      background-color: var(--white); }
+    .comment-subscription-form .subscribe-label:after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 3px;
+      width: 14px;
+      height: 14px;
+      opacity: 0;
+      -webkit-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+      background-color: var(--brand-primary); }

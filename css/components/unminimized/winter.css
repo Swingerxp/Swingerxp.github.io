@@ -105,6 +105,7 @@
 .brk-sc-row-four__video,
 .brk-sc-row-four__bg,
 .timeline--masonry .timeline__item img,
+.timeline--masonry .timeline__item img + span,
 .embed-responsive.video-wrap {
   border-radius: 3px;
   overflow: hidden; }

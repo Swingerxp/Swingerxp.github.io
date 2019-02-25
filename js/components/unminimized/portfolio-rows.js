@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.portfolio_rows_init = {
     attach: function (context, settings) {
 
@@ -17,8 +19,9 @@
         var $gridCols = $grid.attr('data-grid-cols');
         var $tabletGridCols,
           $gridWidth,
-          $doubleGridWidth;
-        var $currentWidth = $(window).width();
+          $doubleGridWidth,
+          iso;
+        var $currentWidth = window.innerWidth || $(window).width();
         var $gridHeight = $grid.attr('data-grid-height') + 'px';
 
 
@@ -26,7 +29,7 @@
           $tabletGridCols = $grid.attr('data-grid-cols-tablet')
         }
 
-        function setCols(windowSize) {
+        var setCols = function (windowSize) {
           if (windowSize > 992) {
             $gridWidth = 100 / $gridCols + '%';
             $doubleGridWidth = 100 / $gridCols * 2 + '%';
@@ -44,20 +47,19 @@
             $grid.find('.brk-grid-fitrows__item_width-2').css('width', $doubleGridWidth);
           }
         };
-        setCols($currentWidth)
+        setCols($currentWidth);
 
-        $(window).resize(function () {
-          setCols($(window).width());
-        })
+        $(window).on('resize', function () {
+          setCols(window.innerWidth || $(window).width());
+        });
 
 
         $grid.find('.brk-grid-fitrows__item').css('height', $gridHeight);
 
         setTimeout(function () {
-          var iso = new Isotope($grid.get(0), {
+          iso = new Isotope($grid.get(0), {
             itemSelector: ".brk-grid-fitrows__item",
-            percentPosition: true,
-            layoutMode: 'fitRows',
+            percentPosition: true
           });
         }, 400)
       });

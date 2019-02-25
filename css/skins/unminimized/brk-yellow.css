@@ -6,10 +6,10 @@
   --black: #000;
   --brk-dark-base: #272727;
   --brk-base-1: #fddb00;
-  --brk-base-2: #fdef4b;
+  --brk-base-2: #fd8000;
   --brk-base-3: #fd8000;
   --brk-base-4: #feff8c;
-  --brk-base-5: #fff42f;
+  --brk-base-5: #fdb415;
   --brk-base-6: #fdb415;
   --brk-base-7: #fcfdab;
   --brk-base-8: #fd8500;
@@ -29,10 +29,10 @@
   --black-rgb: 0, 0, 0;
   --brk-dark-base-rgb: 39, 39, 39;
   --brk-base-1-rgb: 253, 219, 0;
-  --brk-base-2-rgb: 253, 239, 75;
+  --brk-base-2-rgb: 253, 128, 0;
   --brk-base-3-rgb: 253, 128, 0;
   --brk-base-4-rgb: 254, 255, 140;
-  --brk-base-5-rgb: 255, 244, 47;
+  --brk-base-5-rgb: 253, 180, 21;
   --brk-base-6-rgb: 253, 180, 21;
   --brk-base-7-rgb: 252, 253, 171;
   --brk-base-8-rgb: 253, 133, 0;

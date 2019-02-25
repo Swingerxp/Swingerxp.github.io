@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.parallax_video_init = {
     attach: function (context, settings) {
 

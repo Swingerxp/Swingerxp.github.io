@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.footer_init = {
     attach: function (context, settings) {
 
@@ -12,26 +14,26 @@
             prevEl = footer.prev(),
             viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-          function setFooterStyles() {
+          var setFooterStyles = function () {
             footer.css('height', wrapper.outerHeight(true)).addClass('brk-footer_animated');
             prevEl
               .css('margin-bottom', wrapper.outerHeight(true))
               .css('background-color', "#fff")
               .css('position', 'relative')
               .css('z-index', '2');
-          }
+          };
 
           if (viewportHeight >= wrapper.outerHeight(true)) {
             setFooterStyles();
           }
 
-          $(this).bind("DOMSubtreeModified", function () {
+          $(this).on("DOMSubtreeModified", function () {
             if (wrapper.outerHeight(true) !== footer.outerHeight(true) && (viewportHeight >= wrapper.outerHeight(true))) {
               setFooterStyles();
             }
           });
 
-          $(document).scroll(function(){
+          $(document).on('scroll', function(){
             if (wrapper.outerHeight(true) !== footer.outerHeight(true) && (viewportHeight >= wrapper.outerHeight(true))) {
               setFooterStyles();
             }
@@ -58,11 +60,11 @@
           var nav_next = $(this).find('.brk-slider__nav-next');
           var items = $(this).find('.brk-slider__items');
 
-          nav_prev.click(function () {
+          nav_prev.on('click', function () {
             items.slick("slickPrev");
           });
 
-          nav_next.click(function () {
+          nav_next.on('click', function () {
             items.slick("slickNext");
           });
 
@@ -88,7 +90,7 @@
       //footer shop slider end 
       
     }
-  }
+  };
 
   Berserk.behaviors.footer_scrollr_init = {
     attach: function (context, settings) {
@@ -98,14 +100,17 @@
           setTimeout(Berserk.behaviors.footer_scrollr_init.attach, settings.timeout_delay, context, settings);
           return;
         }
-        $('[data-skrollr]:not(.skrollr-rendered)').addClass("skrollr-rendered");
-        setTimeout(function() {
-          var s = skrollr.init({forceHeight: false});
-        }, 1500)
-        
+
+        var windowWidth = window.innerWidth || $(window).width();
+        if (windowWidth >= 992) {
+          $('[data-skrollr]:not(.skrollr-rendered)').addClass("skrollr-rendered");
+          setTimeout(function() {
+            var s = skrollr.init({forceHeight: false});
+          }, 1500)
+        }
+
       }
     }
   }
-
 
 })(jQuery);

@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.timeline_masonry_init = {
     attach: function (context, settings) {

@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.recaptcha = {
     attach: function (context, settings) {
 

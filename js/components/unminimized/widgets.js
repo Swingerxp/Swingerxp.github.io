@@ -1,8 +1,10 @@
 (function ($) {
+
+
   Berserk.behaviors.widgets_carousel_init = {
     attach: function (context, settings) {
 
-      if ($('.brs-carousel:not(.rendered)').length) {
+      if ($('.brs-carousel').length) {
 
         if (typeof $.fn.slick === 'undefined') {
           console.log('Waiting for the slick library');
@@ -20,7 +22,8 @@
         sideBardCarousel.slick({
           infinite: false,
           arrows: false,
-          dots: true
+          dots: true,
+          adaptiveHeight: true
         }).addClass('rendered');
       }
 
@@ -69,7 +72,7 @@
             }
           });
 
-          window.addEventListener("load", function(event) {
+          $(window).on('load', function() {
             cubeSlider.init()
           });
 
@@ -161,11 +164,11 @@
             var strLegth = input.val().length;
             if (strLegth <= 1) {
               input.css('width', '14px')
-            } else if (strLegth == 2) {
+            } else if (strLegth === 2) {
               input.css('width', '22px')
-            } else if (strLegth == 3) {
+            } else if (strLegth === 3) {
               input.css('width', '30px')
-            } else if (strLegth == 4) {
+            } else if (strLegth === 4) {
               input.css('width', '37px')
             } else if (strLegth >= 5) {
               input.css('width', '45px')
@@ -179,7 +182,7 @@
             setInputWidth($(this))
           });
 
-          input.change(function () {
+          input.on('change', function () {
             var $this = $(this);
             $(".brk-sc-price-slider__container").slider("values", $this.data("index"), $this.val());
           });

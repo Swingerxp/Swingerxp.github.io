@@ -1,5 +1,6 @@
 /* Radians to Degrees:  x * Math.PI/180; */
 (function($){
+  'use strict';
 
   Berserk.behaviors.rotate_slider_init = {
     attach: function (context, settings) {

@@ -71,15 +71,15 @@
       font-size: 0.8125rem;
       line-height: 1.1875rem;
       display: inline-block;
-      float: left; }
-      .brk-team-strict__social a i {
-        -webkit-transition: all .2s ease-in-out;
-        transition: all .2s ease-in-out; }
+      float: left;
+      color: #fff !important;
+      text-decoration: none !important;
+      -webkit-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out; }
       .brk-team-strict__social a:hover {
-        color: #fff; }
-        .brk-team-strict__social a:hover i {
-          -webkit-transform: scale(1.5);
-                  transform: scale(1.5); }
+        color: #fff;
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5); }
 
 .brk-team-persone-circle {
   max-width: 300px;
@@ -92,7 +92,7 @@
       color: #fff; }
     .brk-team-persone-circle:hover .brk-team-persone-circle__name-position span {
       color: rgba(255, 255, 255, 0.6); }
-  .brk-team-persone-circle:hover .brk-team-persone-circle__bg-overlay:before {
+  .brk-team-persone-circle:hover .brk-team-persone-circle__bg-overlay .before {
     opacity: 1; }
   .brk-team-persone-circle:hover .brk-team-persone-circle__bg-overlay svg {
     -webkit-transform: translateY(0);
@@ -115,6 +115,8 @@
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
     z-index: 9; }
+    .brk-team-persone-circle__name-position a {
+      text-decoration: none !important; }
     .brk-team-persone-circle__name-position h4 {
       color: #272727;
       letter-spacing: -0.01em;
@@ -138,8 +140,7 @@
       left: 0;
       z-index: 1;
       overflow: hidden; }
-      .brk-team-persone-circle__bg-overlay:before {
-        content: '';
+      .brk-team-persone-circle__bg-overlay .before {
         position: absolute;
         z-index: 1;
         top: 0;
@@ -148,9 +149,7 @@
         left: 0;
         opacity: 0;
         -webkit-transition: all .3s ease-in-out;
-        transition: all .3s ease-in-out;
-        background-image: -webkit-gradient(linear, left top, right top, from(rgba(var(--brand-primary-rgb), 0.92)), to(rgba(var(--secondary-rgb), 0.92)));
-        background-image: linear-gradient(to right, rgba(var(--brand-primary-rgb), 0.92), rgba(var(--secondary-rgb), 0.92)); }
+        transition: all .3s ease-in-out; }
       .brk-team-persone-circle__bg-overlay svg {
         position: absolute;
         bottom: 0;
@@ -196,8 +195,9 @@
         -webkit-transition-delay: .25s;
                 transition-delay: .25s; }
       .brk-team-persone-circle__contacts li a {
-        color: #fff;
-        display: inline-block; }
+        color: #fff !important;
+        display: inline-block;
+        text-decoration: none !important; }
       .brk-team-persone-circle__contacts li i {
         color: rgba(255, 255, 255, 0.6);
         width: 28px;
@@ -209,9 +209,13 @@
     min-height: 80px; }
     .brk-team-persone-circle__social-links ul {
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      justify-content: space-around;
-      padding: 0 18px; }
+      -webkit-justify-content: space-around;
+              justify-content: space-around;
+      padding: 0 18px !important;
+      margin: 0 !important;
+      list-style: none !important; }
       .brk-team-persone-circle__social-links ul li {
         margin-top: 12px;
         opacity: 0;
@@ -235,7 +239,10 @@
           margin-top: 26px; }
         .brk-team-persone-circle__social-links ul li a {
           padding: 0 10px;
-          display: inline-block; }
+          display: inline-block;
+          color: #272727 !important; }
+          .brk-team-persone-circle__social-links ul li a:hover {
+            color: var(--brand-primary); }
 
 .brk-team-mc {
   position: relative;
@@ -385,8 +392,10 @@
     .brk-team-mc__content .mc-social {
       position: absolute;
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center;
       bottom: 0;
       left: 0;
@@ -537,8 +546,10 @@
       -webkit-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%); }
   .brk-team-staff:hover .brk-team-staff__social-links {
-    right: 12%;
+    right: 6%;
     opacity: 1; }
+    .brk-team-staff:hover .brk-team-staff__social-links.sl-2x {
+      right: 12%; }
   .brk-team-staff__img {
     width: 100%;
     min-height: 270px; }
@@ -600,7 +611,9 @@
       bottom: 19px;
       left: 34px;
       z-index: 2;
-      text-align: left; }
+      text-align: left;
+      padding-top: 0 !important;
+      margin-bottom: 0 !important; }
       .brk-team-staff__description h4 a {
         display: inline-block;
         -webkit-transition: none;
@@ -615,6 +628,7 @@
     right: -10px;
     opacity: 0;
     width: auto;
+    max-width: 50px;
     -webkit-transition: all .3s ease-in-out .1s;
     transition: all .3s ease-in-out .1s;
     z-index: 3; }
@@ -629,7 +643,8 @@
       float: left;
       display: block;
       width: 50%;
-      color: #fff;
+      color: #fff !important;
+      text-decoration: none !important;
       text-align: center; }
       .brk-team-staff__social-links a:hover {
         -webkit-transform: scale(1.4);
@@ -641,39 +656,47 @@
 .brk-team-persone-table {
   position: relative;
   overflow: hidden;
-  padding-bottom: 1px; }
+  padding-bottom: 1px;
+  padding-right: 1px; }
   .brk-team-persone-table .ptable-top {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 0;
-    border-top: 1px dashed rgba(39, 39, 39, 0.3);
+    height: 1px;
     z-index: 9; }
+    .brk-team-persone-table .ptable-top svg {
+      vertical-align: top;
+      width: 1920px; }
   .brk-team-persone-table .ptable-bottom {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 0;
-    border-bottom: 1px dashed rgba(39, 39, 39, 0.3);
+    height: 1px;
     z-index: 9; }
+    .brk-team-persone-table .ptable-bottom svg {
+      vertical-align: top;
+      width: 1920px; }
   .brk-team-persone-table .ptable-right {
     position: absolute;
     top: 0;
     right: 0;
-    width: 0;
+    width: 1px;
     height: 100%;
-    border-right: 1px dashed rgba(39, 39, 39, 0.3);
     z-index: 9; }
   .brk-team-persone-table .ptable-left {
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
+    width: 1px;
     height: 100%;
-    border-left: 1px dashed rgba(39, 39, 39, 0.3);
     z-index: 9; }
+  .brk-team-persone-table .ptable-top,
+  .brk-team-persone-table .ptable-bottom,
+  .brk-team-persone-table .ptable-left,
+  .brk-team-persone-table .ptable-right {
+    stroke: rgba(0, 0, 0, 0.3); }
   .brk-team-persone-table__overlay {
     position: absolute;
     top: 0;
@@ -697,10 +720,17 @@
       top: 35px;
       left: 43px;
       -webkit-transform: translate(0, 0);
-              transform: translate(0, 0);
-      text-align: left; }
+              transform: translate(0, 0); }
       .brk-team-persone-table__item:hover .brk-team-persone-table__name-position h4 {
-        color: #fff; }
+        color: #fff;
+        left: 0;
+        -webkit-transform: translateX(0);
+                transform: translateX(0); }
+      .brk-team-persone-table__item:hover .brk-team-persone-table__name-position span {
+        color: rgba(255, 255, 255, 0.6);
+        left: 0;
+        -webkit-transform: translateX(0);
+                transform: translateX(0); }
     .brk-team-persone-table__item:hover .brk-team-persone-table__contacts {
       z-index: 11; }
       .brk-team-persone-table__item:hover .brk-team-persone-table__contacts li {
@@ -729,16 +759,34 @@
     min-width: 195px;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    text-align: center;
     -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out; }
+    transition: all .4s ease-in-out;
+    text-align: left; }
+    .brk-team-persone-table__name-position a {
+      display: block; }
     .brk-team-persone-table__name-position h4 {
       color: #272727;
-      -webkit-transition: all .3s ease-in-out;
-      transition: all .3s ease-in-out;
-      letter-spacing: -0.02em; }
+      letter-spacing: -0.02em;
+      display: inline-block;
+      position: relative;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+      -webkit-transition-property: color, left, \transform;
+      transition-property: color, left, \transform;
+      -webkit-transition-duration: .3s;
+              transition-duration: .3s; }
     .brk-team-persone-table__name-position span {
-      color: #c4c4c4; }
+      color: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      position: relative;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+      -webkit-transition-property: color, left, \transform;
+      transition-property: color, left, \transform;
+      -webkit-transition-duration: .3s;
+              transition-duration: .3s; }
   .brk-team-persone-table__contacts {
     position: absolute;
     z-index: 3;
@@ -750,7 +798,6 @@
     text-align: left;
     overflow: hidden; }
     .brk-team-persone-table__contacts li {
-      display: block;
       opacity: 0;
       -webkit-transform: translateX(100%);
               transform: translateX(100%);
@@ -758,8 +805,10 @@
       transition: all .3s ease-in-out;
       line-height: 31px;
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center; }
       .brk-team-persone-table__contacts li:nth-child(1) {
         -webkit-transition-delay: 0.08s;
@@ -792,7 +841,8 @@
         -webkit-transition-delay: 0.8s;
                 transition-delay: 0.8s; }
       .brk-team-persone-table__contacts li a {
-        color: #fff; }
+        color: #fff !important;
+        text-decoration: none !important; }
       .brk-team-persone-table__contacts li i {
         color: rgba(255, 255, 255, 0.4);
         width: 28px; }
@@ -815,7 +865,7 @@
   .brk-elev:before, .brk-elev:after {
     content: '';
     position: absolute;
-    background-color: #000; }
+    background-color: rgba(0, 0, 0, 0.3); }
   .brk-elev:before {
     width: 100%;
     height: 1px;

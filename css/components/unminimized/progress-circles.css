@@ -25,11 +25,14 @@
   .chart__wrapper {
     min-height: 460px;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
             flex-direction: column;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center; }
     .chart__wrapper_short {
       min-height: 400px; }
@@ -64,6 +67,7 @@
     background: none;
     border-radius: 100%;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     height: 170px;
     width: 170px;
@@ -115,6 +119,7 @@
 .chart-minimal .chart__circle {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-flow: column;
           flex-flow: column;
   padding-top: 60px; }
   .chart-minimal .chart__circle-dot {

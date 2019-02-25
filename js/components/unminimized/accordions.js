@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.accordions_init = {
     attach: function (context, settings) {

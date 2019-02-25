@@ -1,9 +1,12 @@
 .steps__wrapper {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
           justify-content: space-between;
   -webkit-box-align: center;
+  -webkit-align-items: center;
           align-items: center;
   text-align: center; }
   .steps__wrapper_wide-content {
@@ -41,9 +44,15 @@
     .steps__wrapper-gradient li.complete .steps__dot {
       background: var(--brand-primary);
       border-color: var(--brand-primary); }
+      .steps__wrapper-gradient li.complete .steps__dot:before,
+      .steps__wrapper-gradient li.complete .steps__dot .after {
+        background: var(--brand-primary); }
     .steps__wrapper-gradient li > a.active .steps__dot {
       border-color: var(--brand-primary);
       background: #fff; }
+      .steps__wrapper-gradient li > a.active .steps__dot:before,
+      .steps__wrapper-gradient li > a.active .steps__dot .after {
+        background: #fff; }
   .steps__wrapper-gradient .steps__title {
     color: #000;
     position: absolute;
@@ -306,10 +315,13 @@
     position: relative;
     z-index: 1;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center; }
     .steps__wrapper-checkers .steps__dot:before {
       content: '\f00c';
@@ -425,10 +437,13 @@
     width: 50px;
     height: 50px;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center;
     color: #fff;
     background: var(--brand-primary);
@@ -505,6 +520,31 @@
   .steps__wrapper-squared_dark .steps__dot > .after {
     border: 2px solid var(--secondary);
     background-color: var(--secondary); }
+  .steps__wrapper-squared_light .steps__icon {
+    background: #fff;
+    border-color: #fff;
+    color: var(--brand-primary); }
+    .steps__wrapper-squared_light .steps__icon > .after {
+      border-color: #fff transparent transparent transparent; }
+  .steps__wrapper-squared_light .steps__progress {
+    background: #fff; }
+  .steps__wrapper-squared_light .steps__title {
+    color: #fff; }
+  .steps__wrapper-squared_light .steps__dot {
+    border-color: var(--brk-base-3);
+    background: #fff; }
+    .steps__wrapper-squared_light .steps__dot > .after {
+      border-color: #fff; }
+  .steps__wrapper-squared_light li > a.active .steps__dot {
+    background: var(--brand-primary); }
+    .steps__wrapper-squared_light li > a.active .steps__dot > .after {
+      border-color: #fff; }
+  .steps__wrapper-squared_light li > a.active .steps__icon {
+    border-color: #fff;
+    color: #fff;
+    background: transparent !important; }
+    .steps__wrapper-squared_light li > a.active .steps__icon > .after {
+      border-color: #fff transparent transparent transparent; }
 
 .steps-content_dark {
   background-color: var(--secondary); }
@@ -512,37 +552,6 @@
     color: #fff; }
   .steps-content_dark .steps-content__description {
     color: rgba(255, 255, 255, 0.6); }
-
-.all-light .steps__wrapper-squared .steps__icon {
-  background: #fff;
-  border-color: #fff;
-  color: var(--brand-primary); }
-  .all-light .steps__wrapper-squared .steps__icon > .after {
-    border-color: #fff transparent transparent transparent; }
-
-.all-light .steps__wrapper-squared .steps__progress {
-  background: #fff; }
-
-.all-light .steps__wrapper-squared .steps__title {
-  color: #fff; }
-
-.all-light .steps__wrapper-squared .steps__dot {
-  border-color: var(--brk-base-3);
-  background: #fff; }
-  .all-light .steps__wrapper-squared .steps__dot > .after {
-    border-color: #fff; }
-
-.all-light .steps__wrapper-squared li > a.active .steps__dot {
-  background: var(--brand-primary); }
-  .all-light .steps__wrapper-squared li > a.active .steps__dot > .after {
-    border-color: #fff; }
-
-.all-light .steps__wrapper-squared li > a.active .steps__icon {
-  border-color: #fff;
-  color: #fff;
-  background: transparent !important; }
-  .all-light .steps__wrapper-squared li > a.active .steps__icon > .after {
-    border-color: #fff transparent transparent transparent; }
 
 .steps__wrapper-light {
   position: relative;
@@ -567,6 +576,7 @@
     display: inline-block;
     position: relative;
     -webkit-box-flex: 1;
+    -webkit-flex: 1;
             flex: 1;
     margin-top: -80px; }
     .steps__wrapper-light li > a {

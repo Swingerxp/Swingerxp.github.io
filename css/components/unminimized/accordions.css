@@ -343,9 +343,6 @@
 .accordion-simple-rainbow .progress__count + .progress__count {
   margin-top: 36px; }
 
-.accordion-simple-rainbow .count span {
-  margin-top: -4px; }
-
 .accordion-simple-rainbow .card-toggle-icon {
   width: 55px; }
 
@@ -415,6 +412,10 @@
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%); }
 
+.accordion-simple h5 a {
+  color: #272727 !important;
+  text-decoration: none !important; }
+
 .accordion-slider-min .slider-wrapper {
   padding: 0 1px 0 38px; }
 
@@ -457,8 +458,10 @@
     border-bottom: 1px solid #ebebeb;
     padding: 0 65px 0 30px;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center;
     height: 65px; }
     .accordion-slider-min .card-header h5 {

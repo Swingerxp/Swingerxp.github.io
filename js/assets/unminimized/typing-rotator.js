@@ -1,4 +1,6 @@
 (function($) {
+  'use strict';
+
   //set animation timing
   var animationDelay = 3000,
     //loading bar effect
@@ -28,7 +30,7 @@
       var word = $(this),
         letters = word.text().split(""),
         selected = word.hasClass("is-visible");
-      for (i in letters) {
+      for (var i in letters) {
         if (word.parents(".rotate-2").length > 0)
           letters[i] = "<em>" + letters[i] + "</em>";
         letters[i] = selected
@@ -206,8 +208,8 @@
     $oldWord.removeClass("is-visible").addClass("is-hidden");
     $newWord.removeClass("is-hidden").addClass("is-visible");
   }
-  $(window).resize(function() {
-    headline = $(".brk-headline");
+  $(window).on('resize', function() {
+    var headline = $(".brk-headline");
     if (!headline.hasClass("type")) {
       //assign to .brk-words-rotators the width of its longest word
       var words = headline.find(".brk-words-rotators b"),

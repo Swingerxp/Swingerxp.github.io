@@ -335,7 +335,8 @@ figure {
             transition-duration: .4s;
     background: #fff;
     z-index: 1; }
-  .shape-box__wrapper-stripe .icon {
+  .shape-box__wrapper-stripe .icon,
+  .shape-box__wrapper-stripe .livicon-evo {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -345,7 +346,8 @@ figure {
             transform: translateX(-50%);
     opacity: 0;
     z-index: 10; }
-    .shape-box__wrapper-stripe .icon svg {
+    .shape-box__wrapper-stripe .icon svg,
+    .shape-box__wrapper-stripe .livicon-evo svg {
       height: 0;
       overflow: hidden;
       -webkit-transition-property: max-height, overflow, -webkit-transform;
@@ -354,9 +356,11 @@ figure {
       transition-property: max-height, overflow, transform, -webkit-transform;
       -webkit-transition-duration: .4s;
               transition-duration: .4s; }
-      .shape-box__wrapper-stripe .icon svg path {
+      .shape-box__wrapper-stripe .icon svg path,
+      .shape-box__wrapper-stripe .livicon-evo svg path {
         stroke: #fff; }
-    .shape-box__wrapper-stripe .icon i {
+    .shape-box__wrapper-stripe .icon i,
+    .shape-box__wrapper-stripe .livicon-evo i {
       font-size: 80px;
       overflow: hidden;
       -webkit-transition-property: max-height, overflow, -webkit-transform;
@@ -391,13 +395,16 @@ figure {
       right: 30px;
       -webkit-transition: bottom .4s;
       transition: bottom .4s; }
-  .shape-box__wrapper-stripe:hover .icon {
+  .shape-box__wrapper-stripe:hover .icon,
+  .shape-box__wrapper-stripe:hover .livicon-evo {
     opacity: 1; }
-    .shape-box__wrapper-stripe:hover .icon svg {
+    .shape-box__wrapper-stripe:hover .icon svg,
+    .shape-box__wrapper-stripe:hover .livicon-evo svg {
       height: 90px;
       overflow: visible;
       margin-bottom: 20px; }
-    .shape-box__wrapper-stripe:hover .icon i {
+    .shape-box__wrapper-stripe:hover .icon i,
+    .shape-box__wrapper-stripe:hover .livicon-evo i {
       overflow: visible;
       margin-bottom: 20px; }
   .shape-box__wrapper-stripe:hover figcaption {
@@ -613,10 +620,13 @@ figure {
 
 .shape-box__wrapper-triangle figcaption {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
           justify-content: center;
   -webkit-box-align: center;
+  -webkit-align-items: center;
           align-items: center;
   position: absolute;
   padding: 0 30px;

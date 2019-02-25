@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.portfolio_init = {
     attach: function (context, settings) {
       if (typeof $.fn.brk_hover3d !== 'function' || typeof anime !== 'function') {

@@ -5,7 +5,7 @@
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  opacity: 0.2;
+  opacity: .7;
   -webkit-transition: 0.3s ease opacity;
   transition: 0.3s ease opacity; }
 
@@ -77,9 +77,9 @@
   display: block;
   padding-top: 71.5%; }
 
-.brk-bottom-m80 {
+.brk-bottom-m100 {
   position: relative;
-  bottom: -80px; }
+  bottom: -100px; }
 
 .brk-slider-cards .slick-slide {
   margin: 0 5px; }
@@ -89,13 +89,15 @@
 
 .brk-slider-cards .brk-slider__control {
   position: absolute;
-  bottom: -88px;
+  bottom: -78px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
           align-items: center; }
   .brk-slider-cards .brk-slider__control .brk-slider__control-prev,
   .brk-slider-cards .brk-slider__control .brk-slider__control-next {
@@ -115,27 +117,35 @@
               transform: scale(1.3); }
   .brk-slider-cards .brk-slider__control .brk-slider__control-prev {
     -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
             order: 1;
     margin-right: 16px; }
   .brk-slider-cards .brk-slider__control .brk-slider__control-next {
     -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
             order: 3;
     margin-left: 16px; }
   .brk-slider-cards .brk-slider__control .brk-slider__dots {
     -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
             order: 2;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center; }
     .brk-slider-cards .brk-slider__control .brk-slider__dots li {
       width: 12px;
       height: 12px;
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center;
       -webkit-box-pack: center;
+      -webkit-justify-content: center;
               justify-content: center;
       cursor: pointer;
       margin-left: 8px;
@@ -162,9 +172,11 @@
 
 .brk-tabs__title-container {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
           flex-direction: column; }
   .brk-tabs__title-container .divider-cross {
     margin-top: 0;

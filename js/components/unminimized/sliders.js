@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.sliders_page_init = {
     attach: function (context, settings) {
 
@@ -20,11 +22,11 @@
           prevBtn     = $this.find(".brk-carousel__btn-prev"),
           nextBtn     = $this.find(".brk-carousel__btn-next");
 
-        prevBtn.click(function () {
+        prevBtn.on('click', function () {
           carousel.slick("slickPrev");
         });
 
-        nextBtn.click(function () {
+        nextBtn.on('click', function () {
           carousel.slick("slickNext");
         });
 

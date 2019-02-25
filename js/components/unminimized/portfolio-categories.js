@@ -1,7 +1,9 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.portfolio_categories_init = {
     attach: function (context, settings) {
-      if (typeof $.fn.slick == 'undefined') {
+      if (typeof $.fn.slick === 'undefined') {
         console.log('Waiting for the slick library');
         setTimeout(Berserk.behaviors.portfolio_categories_init.attach, settings.timeout_delay, context, settings);
         return;

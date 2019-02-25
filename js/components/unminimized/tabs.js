@@ -21,7 +21,7 @@
 
           index = index ? index : 0;
 
-          $(document).ready( function () {
+          $(window).on('load', function () {
             tabItem.hide().eq(index).fadeIn();
           });
 
@@ -47,7 +47,8 @@
             tabItem = _.find('.brk-tab-item'),
             index = _.data('index'),
             headerStyle_1 = _.closest('.brk-header_style-1'),
-            headerStyle_2 = _.closest('.brk-header_style-2');
+            headerStyle_2 = _.closest('.brk-header_style-2'),
+            headerStyle_3 = _.closest('.brk-header_style-3');
 
           index = index ? index : 0;
 
@@ -55,13 +56,15 @@
             _.addClass('brk-tabs-hovers_style-1');
           } else if (headerStyle_2[0]) {
             _.addClass('brk-tabs-hovers_style-2')
+          } else if (headerStyle_3[0]) {
+            _.addClass('brk-tabs-hovers_style-3')
           }
 
           if (headerStyle_1[0]) {
             tabsNav.append('<div class="brk-tabs-hovers__duplicate-icon"></div>');
           }
 
-          $(document).ready(function () {
+          $(window).on('load', function () {
             tabItem.hide().eq(index).fadeIn();
             tab.eq(index).addClass('current');
           });
@@ -74,20 +77,54 @@
             icon.clone().appendTo(duplicateIcon);
           }
 
-          tab.on('mouseenter', function () {
-            var $this = $(this),
-              $icon = $this.children('[class*="fa-"]');
 
-            if (headerStyle_1[0]) {
-              duplicateIcon.empty();
-              $icon.clone().appendTo(duplicateIcon);
-            }
+          var tabHover = function(widthDoc) {
+            var windowWidth = window.innerWidth || $(window).width();
 
-            if (!$this.hasClass('current')) {
-              tab.removeClass('current').eq($(this).index()).addClass('current');
-              tabItem.hide().eq($(this).index()).fadeIn();
+            if (windowWidth < widthDoc) {
+
+              tab.on('click', function () {
+                var $this = $(this),
+                  $icon = $this.children('[class*="fa-"]');
+
+                if (headerStyle_1[0]) {
+                  duplicateIcon.empty();
+                  $icon.clone().appendTo(duplicateIcon);
+                }
+
+                if (!$this.hasClass('current')) {
+                  tab.removeClass('current').eq($(this).index()).addClass('current');
+                  tabItem.hide().eq($(this).index()).fadeIn();
+                }
+              }).unbind('mouseenter');
+
+            } else if (windowWidth >= widthDoc) {
+
+              tab.on('mouseenter', function () {
+                var $this = $(this),
+                  $icon = $this.children('[class*="fa-"]');
+
+                if (headerStyle_1[0]) {
+                  duplicateIcon.empty();
+                  $icon.clone().appendTo(duplicateIcon);
+                }
+
+                if (!$this.hasClass('current')) {
+                  tab.removeClass('current').eq($(this).index()).addClass('current');
+                  tabItem.hide().eq($(this).index()).fadeIn();
+                }
+              }).unbind('click');
+
             }
+          };
+
+          tabHover(992);
+
+          $(window).on('resize', function () {
+            tabHover(992);
           });
+
+
           /*$(this).on('mouseleave', function () {
             tab.removeClass('current').eq(index).addClass('current');
             item.hide().eq(index).fadeIn();
@@ -110,7 +147,7 @@
             }, 500)
           });
 
-          $(window).resize(function () {
+          $(window).on('resize', function () {
             magicLineFunc(magicLine, tabActive);
           });
 
@@ -125,28 +162,30 @@
             }
           });
 
-          tab.hover(function () {
-            var el = $(this);
-            var leftPos = el.position().left;
-            var newWidth = el.innerWidth();
+          tab.on({
+            mouseenter: function () {
+              var el = $(this);
+              var leftPos = el.position().left;
+              var newWidth = el.innerWidth();
 
-            magicLine.stop().animate({
-              left: leftPos,
-              width: newWidth
-            });
+              magicLine.stop().animate({
+                left: leftPos,
+                width: newWidth
+              });
 
-            var tabActive = _.find('.brk-tab.active');
-            if (el.hasClass('active') === false) {
-              tabActive.addClass('no-hover');
+              var tabActive = _.find('.brk-tab.active');
+              if (el.hasClass('active') === false) {
+                tabActive.addClass('no-hover');
+              }
+            },
+            mouseleave: function () {
+              magicLine.stop().animate({
+                left: magicLine.data("origLeft"),
+                width: magicLine.data("origWidth")
+              });
+              var tabActive = _.find('.brk-tab.active');
+              tabActive.removeClass('no-hover');
             }
-
-          }, function () {
-            magicLine.stop().animate({
-              left: magicLine.data("origLeft"),
-              width: magicLine.data("origWidth")
-            });
-            var tabActive = _.find('.brk-tab.active');
-            tabActive.removeClass('no-hover');
           });
 
         }
@@ -168,7 +207,7 @@
   Berserk.behaviors.tabs_slider_init = {
     attach: function (context, settings) {
 
-      if ($('.brk-slider:not(.rendered)').length) {
+      if ($('.brk-slider').length) {
 
         if (typeof $.fn.slick === 'undefined') {
           console.log('Waiting for the slick library');
@@ -177,10 +216,11 @@
         }
 
         $(context).parent().find('.brk-slider:not(.rendered)').addClass('rendered').each(function () {
-          var container = $(this);
-          var carousel = container.find('.brk-slider__items');
-          var prev = $(this).find('.brk-slider__prev');
-          var next = $(this).find('.brk-slider__next');
+          var container   = $(this),
+            carousel      = container.find('.brk-slider__items'),
+            prev          = $(this).find('.brk-slider__prev'),
+            next          = $(this).find('.brk-slider__next'),
+            sliderControl = container.find('.brk-slider__control');
 
           carousel.on('init', function (event, slick, currentSlide, nextSlide) {
             var slider = $(this);
@@ -189,11 +229,18 @@
             });
             next.on('click', function () {
               slider.slick('slickNext')
-            })
+            });
+          });
+
+          carousel.on('init reInit', function(event, slick, currentSlide, nextSlide){
+            if(slick.slideCount <= slick.options.slidesToShow) {
+              sliderControl.remove();
+              sliderControl = '';
+            }
           });
 
           carousel.slick({
-            appendDots: container.find('.brk-slider__control'),
+            appendDots: sliderControl,
             responsive: [{
                 breakpoint: 1024,
                 settings: {
@@ -209,7 +256,7 @@
                 }
               }
             ]
-          })
+          });
         })
 
       }

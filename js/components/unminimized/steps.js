@@ -1,7 +1,5 @@
-// =================================================================================
-// Tabs
-// =================================================================================
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.steps_init = {
     attach: function (context, settings) {
@@ -57,7 +55,7 @@
             var others = $this.closest("li").siblings().children("a");
             var target = $this.attr("href") || null;
             
-            if(target === null || target.length == 0 || target[0] === "#"){
+            if(target === null || target.length === 0 || target[0] === "#"){
               e.preventDefault();
               tab_links.parent().removeClass("complete");
               $this.parent().prevAll().addClass("complete");

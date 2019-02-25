@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.frontpage_init = {
     attach: function (context, settings) {
@@ -29,7 +30,7 @@
           count = arr.length,
           int = 2000;
 
-        function searchSubstitution() {
+        var searchSubstitution = function () {
           inp.attr('placeholder', arr[i]);
           i++;
 
@@ -42,12 +43,13 @@
       var intervalID = setInterval(searchSubstitution, int);
 
       /* --------------- Deleting placeholder focus --------------- */
-      $('input,textarea').focus(function () {
+      var placeholderInput = $('input,textarea');
+      placeholderInput.on('focus', function () {
         $(this).data('placeholder', $(this).attr('placeholder'));
         $(this).attr('placeholder', '');
         clearInterval(intervalID);
       });
-      $('input,textarea').blur(function () {
+      placeholderInput.on('blur', function () {
         $(this).attr('placeholder', $(this).data('placeholder'));
         intervalID = setInterval(searchSubstitution, int);
       });
@@ -142,7 +144,7 @@
         $inputSearch.autocomplete({
           source: keywordsSortingArray,
           select: function (event, ui) {
-            $search.closest('form').submit(function (e) {
+            $search.closest('form').on('submit', function (e) {
               e.preventDefault();
             });
 
@@ -166,13 +168,11 @@
 
         $inputSearch.on('change keyup input', function () {
 
-          $search.closest('form').submit(function (e) {
+          $search.closest('form').on('submit', function (e) {
             e.preventDefault();
           });
 
           var val = $(this).val();
-
-
 
           if (val === '') {
             setTimeout(function () {
@@ -201,7 +201,6 @@
           });
         });
       });
-
 
     }
   }

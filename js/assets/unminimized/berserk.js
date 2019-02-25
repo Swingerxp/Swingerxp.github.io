@@ -1,3 +1,5 @@
+'use strict';
+
 var Berserk = Berserk || {'settings': {timeout_delay: 200}, 'behaviors': {}};
 
 var brk_xmode = false;
@@ -15,6 +17,24 @@ jQuery.noConflict();
 window.lazySizesConfig = window.lazySizesConfig || {};
 window.lazySizesConfig.expand = 500;
 
+function isSafari() {
+  var ua = window.navigator.userAgent;
+  var iOS = !!ua.match(/iP(ad|od|hone)/i);
+  var hasSafariInUa = !!ua.match(/Safari/i);
+  var noOtherBrowsersInUa = !ua.match(/Chrome|CriOS|OPiOS|mercury|FxiOS|Firefox/i);
+  var result = false;
+  if(iOS) { //detecting Safari in IOS mobile browsers
+    var webkit = !!ua.match(/WebKit/i);
+    result = webkit && hasSafariInUa && noOtherBrowsersInUa
+  } else if(window.safari !== undefined){ //detecting Safari in Desktop Browsers
+    result = true;
+  } else { // detecting Safari in other platforms
+    result = hasSafariInUa && noOtherBrowsersInUa
+  }
+  return result;
+}
+
+
 /* RTL Detect */
 (function () {
   if(!brk_xmode) {
@@ -22,7 +42,7 @@ window.lazySizesConfig.expand = 500;
         brkDirectionOffsets   = document.getElementById('brk-direction-offsets'),
         revSlider             = document.getElementsByClassName('rev_slider_wrapper');
 
-    if (location.search.slice(1) === 'dir=rtl') {
+    if (location.search.indexOf('dir=rtl') + 1) {
       document.documentElement.setAttribute('dir', 'rtl');
 
       brkDirectionBootstrap.setAttribute('href', 'css/assets/bootstrap-rtl.css');
@@ -31,7 +51,7 @@ window.lazySizesConfig.expand = 500;
       if(revSlider.length){
         revSlider[0].style.direction = 'ltr';
       }
-    } else if(location.search.slice(1) === 'dir=ltr') {
+    } else if(location.search.indexOf('dir=ltr') + 1) {
       document.documentElement.setAttribute('dir', 'ltr');
 
       brkDirectionBootstrap.setAttribute('href', 'css/assets/bootstrap.css');
@@ -42,6 +62,10 @@ window.lazySizesConfig.expand = 500;
 /* End RTL Detect */
 
 (function ($) {
+
+  if(isSafari()) {
+    $('html').addClass('brk-safari')
+  }
 
   jQuery.cachedScript = function (url, options) {
 
@@ -57,16 +81,6 @@ window.lazySizesConfig.expand = 500;
     // Return the jqXHR object so we can chain callbacks
     return jQuery.ajax(options);
   };
-
-  /*
-  * Set the preload src for all images which requires lazyload script
-  * Preloader GIF will be showed instead of empty space
-  */
-  function lazyload_images_preload() {
-    $('img.lazyload').attr('src', 'img/preloader.gif');
-    $('[data-bg].lazyload').attr('background-image', 'url("img/preloader.gif")');
-  }
-  lazyload_images_preload();
 
   /*
   * Behaviors engine
@@ -322,13 +336,13 @@ window.lazySizesConfig.expand = 500;
       toTop.each(function () {
         var $this = $(this);
 
-        $(window).scroll(function () {
+        $(window).on('scroll', function () {
           if($this.is('[id="toTop"]')) {
             if ($(this).scrollTop() > top_show) $this.fadeIn();
             else $this.fadeOut();
           }
         });
-        $this.click(function () {
+        $this.on('click', function () {
           $('body, html').animate({
             scrollTop: 0
           }, delay);
@@ -339,13 +353,15 @@ window.lazySizesConfig.expand = 500;
   };
 
   // Bordered theme
-  $(document).ready(function () {
-    if ($('body').hasClass('brk-bordered-theme')) {
-      $(':root').attr('style',  '--b-radius: ' + $('body').attr('data-border') + 'px;');
-    } else {
-      $(':root').attr('style',  '--b-radius:;');
+  Berserk.behaviors.border_theme_init = {
+    attach: function (context, settings) {
+      if ($('body').hasClass('brk-bordered-theme')) {
+        $(':root').attr('style',  '--b-radius: ' + $('body').attr('data-border') + 'px;');
+      } else {
+        $(':root').attr('style',  '--b-radius:;');
+      }
     }
-  });
+  };
 
   // Jquery Counter
   Berserk.behaviors.counter_lib_init = {
@@ -479,6 +495,7 @@ window.lazySizesConfig.expand = 500;
     "css/components/form-controls.css": true,
     "css/components/flip-boxes.css": true,
     "css/components/elements.css": true,
+    "css/components/titles.css": true,
     "vendor/fancybox/css/jquery.fancybox.min.css": true,
     // JS
     "js/assets/brk-customizer.js": true,
@@ -513,9 +530,6 @@ window.lazySizesConfig.expand = 500;
       "js": [
         "https://maps.googleapis.com/maps/api/js?key=" + Berserk.settings.gmap_api_key,
         "js/components/google-maps.js"
-      ],
-      "css" : [
-        'css/components/google-maps.css'
       ]
     },
     "twitter_init": {
@@ -546,33 +560,33 @@ window.lazySizesConfig.expand = 500;
   function brs_add_libraries_lazy(data_library) {
     var required_libs = data_library.split(','), prefix = '';
 
-    for(iv in required_libs) {
-      if(lazyUrls[required_libs[iv]]) {
+    for(var j in required_libs) {
+      if(lazyUrls[required_libs[j]]) {
 
 
-        if(typeof lazyUrls[required_libs[iv]].js !== 'undefined') {
+        if(typeof lazyUrls[required_libs[j]].js !== 'undefined') {
 
-          for(i in lazyUrls[required_libs[iv]].js) {
-            if(!uniqueLazyUrls[lazyUrls[required_libs[iv]].js[i]]) {
-              uniqueLazyUrls[lazyUrls[required_libs[iv]].js[i]] = true;
+          for(var i in lazyUrls[required_libs[j]].js) {
+            if(!uniqueLazyUrls[lazyUrls[required_libs[j]].js[i]]) {
+              uniqueLazyUrls[lazyUrls[required_libs[j]].js[i]] = true;
 
-              prefix = Berserk.settings.project_prefix && lazyUrls[required_libs[iv]].js[i].indexOf('//') === -1 ? Berserk.settings.project_prefix : '';
-              console.log('JS added: ' + prefix + lazyUrls[required_libs[iv]].js[i]);
-              $.cachedScript(prefix + lazyUrls[required_libs[iv]].js[i]).done(function (script, textStatus) {
+              prefix = Berserk.settings.project_prefix && lazyUrls[required_libs[j]].js[i].indexOf('//') === -1 ? Berserk.settings.project_prefix : '';
+              console.log('JS added: ' + prefix + lazyUrls[required_libs[j]].js[i]);
+              $.cachedScript(prefix + lazyUrls[required_libs[j]].js[i]).done(function (script, textStatus) {
                 Berserk.attachBehaviors($('body'), Berserk.settings);
               });
             }
           }
         }
 
-        if(typeof lazyUrls[required_libs[iv]].css !== 'undefined') {
-          for(i in lazyUrls[required_libs[iv]].css) {
-            if(!uniqueLazyUrls[lazyUrls[required_libs[iv]].css[i]]) {
-              uniqueLazyUrls[lazyUrls[required_libs[iv]].css[i]] = true;
+        if(typeof lazyUrls[required_libs[j]].css !== 'undefined') {
+          for(i in lazyUrls[required_libs[j]].css) {
+            if(!uniqueLazyUrls[lazyUrls[required_libs[j]].css[i]]) {
+              uniqueLazyUrls[lazyUrls[required_libs[j]].css[i]] = true;
 
-              prefix = Berserk.settings.project_prefix && lazyUrls[required_libs[iv]].css[i].indexOf('//') === -1 ? Berserk.settings.project_prefix : '';
-              console.log('CSS added: ' + prefix + lazyUrls[required_libs[iv]].css[i]);
-              $('head').append('<link rel="stylesheet"  href="' + prefix + lazyUrls[required_libs[iv]].css[i] + '">'); 
+              prefix = Berserk.settings.project_prefix && lazyUrls[required_libs[j]].css[i].indexOf('//') === -1 ? Berserk.settings.project_prefix : '';
+              console.log('CSS added: ' + prefix + lazyUrls[required_libs[j]].css[i]);
+              $('head').append('<link rel="stylesheet"  href="' + prefix + lazyUrls[required_libs[j]].css[i] + '">');
             }
           }
         }
@@ -821,6 +835,11 @@ window.lazySizesConfig.expand = 500;
         "js/assets/brk-customizer.js"
       ]
     },
+    "flexmenu": {
+      "js": [
+        "js/assets/flexmenu.js"
+      ]
+    },
     "component__social_links": {
       "css": [
         "css/components/social-links.css"
@@ -902,9 +921,6 @@ window.lazySizesConfig.expand = 500;
     "component__title": {
       "css": [
         "css/components/titles.css"
-      ],
-      "dependency": [
-        "assets__typing_rotator"
       ]
     },
     "component__typing_rotator": {
@@ -1062,6 +1078,14 @@ window.lazySizesConfig.expand = 500;
         "component__social_links",
         "component__blog",
         "component__blog_page_css"
+      ]
+    },
+    "component__cta": {
+      "css": [
+        "css/components/cta.css"
+      ],
+      "js": [
+        "js/components/cta.js"
       ]
     },
     "component__widgets_css": {
@@ -1281,6 +1305,14 @@ window.lazySizesConfig.expand = 500;
         "css/components/tiles.css"
       ]
     },
+    "component__icons": {
+      "css": [
+        "css/components/icons.css"
+      ],
+      "js": [
+        "js/components/icons.js"
+      ]
+    },
     "component__title_section": {
       "css": [
         "css/components/section-titles.css"
@@ -1436,14 +1468,6 @@ window.lazySizesConfig.expand = 500;
         "scrollbar"
       ]
     },
-    "component__shop_item_page": {
-      "css": [
-        "css/components/shop-components-item-page.css"
-      ],
-      "js": [
-        "js/components/shop-components-item-page.js"
-      ]
-    },
     "component__shop_item_page_sidebar": {
       "css": [
         "css/components/shop-components-item-sidebar.css"
@@ -1452,9 +1476,15 @@ window.lazySizesConfig.expand = 500;
     "component__elements": {
       "css": [
         "css/components/elements.css"
+      ],
+      "js": [
+        "js/components/elements.js"
       ]
     },
     "component__header": {
+      "dependency": [
+        "flexmenu"
+      ],
       "css": [
         "css/assets/brk-header-elements.css"
       ],
@@ -1523,12 +1553,22 @@ window.lazySizesConfig.expand = 500;
         "js/components/parallax-video.js"
       ]
     },
+    "component__cart": {
+      "css": [
+        "css/components/cart.css"
+      ],
+      "js": [
+        "js/components/cart.js"
+      ]
+    },
     "component__checkout": {
       "css": [
         "css/components/checkout.css"
-      ],
-      "js": [
-        "js/components/checkout.js"
+      ]
+    },
+    "component__map": {
+      "css" : [
+        'css/components/google-maps.css'
       ]
     }
   };
@@ -1539,6 +1579,7 @@ window.lazySizesConfig.expand = 500;
       $('html').addClass('brk-preloader-remove');
       setTimeout(function () {
         $('html').removeClass('brk-preloader brk-preloader-remove');
+        $('.brk-header:not(.brk-header_vertical)').css('display', '').addClass('d-flex');
       }, 1500)
     });
 
@@ -1546,10 +1587,12 @@ window.lazySizesConfig.expand = 500;
       $('html').addClass('brk-preloader-remove');
       setTimeout(function () {
         $('html').removeClass('brk-preloader brk-preloader-remove');
+        $('.brk-header:not(.brk-header_vertical)').css('display', '').addClass('d-flex');
       }, 1500)
     }, 5000);
   } else {
     $('html').removeClass('brk-preloader');
+    $('.brk-header:not(.brk-header_vertical)').css('display', '').addClass('d-flex');
   }
   // End Brk-preloader
 

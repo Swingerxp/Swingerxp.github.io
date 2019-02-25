@@ -290,56 +290,45 @@
 
 .title-lines-solid {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
           align-items: center;
   padding: 0; }
   .title-lines-solid .text {
     position: relative;
     z-index: 1;
     padding: 0 20px;
-    flex-shrink: 1; }
+    -webkit-flex-shrink: 1;
+            flex-shrink: 1; }
   .title-lines-solid .line {
     -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
             flex-grow: 1;
     height: 5px;
     background: #EEF4FF; }
 
-.title-lines-ridget {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  padding: 0; }
-  .title-lines-ridget .text {
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-    padding: 0 20px;
-    flex-shrink: 0; }
-  .title-lines-ridget .line {
-    -webkit-box-flex: 1;
-            flex-grow: 1;
-    height: 5px;
-    background-image: url("../../img/heading-bg.png");
-    background-position: center center;
-    background-repeat: repeat-x; }
-
 .title-lines-double {
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
           align-items: center;
   padding: 0; }
   .title-lines-double .text {
     position: relative;
     z-index: 1;
     display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: inline-flex;
-    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+            flex-shrink: 0;
     padding: 0 20px; }
   .title-lines-double .line {
     -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
             flex-grow: 1;
     height: 5px;
     background: none;
@@ -362,155 +351,37 @@
       height: 1px;
       background: #000000; }
 
-.title-lines-bottom {
-  line-height: 1;
-  margin-top: 4px; }
-  .title-lines-bottom:after, .title-lines-bottom:before {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    right: 0;
-    width: 47px;
-    height: 2px;
-    background: #000; }
-    @media (min-width: 768px) {
-      .title-lines-bottom:after, .title-lines-bottom:before {
-        width: 88px; } }
-  .title-lines-bottom:before {
-    right: auto;
-    left: 0; }
-
-.title-lines-four {
-  position: relative;
-  padding: 27px;
-  border: 2px solid #EDEDED; }
-  .title-lines-four span {
-    position: absolute;
-    width: 55px;
-    height: 2px;
-    background: #EDEDED; }
-    .title-lines-four span:nth-child(1) {
-      top: 0;
-      left: 0;
-      -webkit-transform: rotate(45deg);
-              transform: rotate(45deg);
-      -webkit-transform-origin: top left;
-              transform-origin: top left; }
-    .title-lines-four span:nth-child(2) {
-      top: 0;
-      right: 0;
-      -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg);
-      -webkit-transform-origin: top right;
-              transform-origin: top right; }
-    .title-lines-four span:nth-child(3) {
-      bottom: 0;
-      left: 0;
-      -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg);
-      -webkit-transform-origin: bottom left;
-              transform-origin: bottom left; }
-    .title-lines-four span:nth-child(4) {
-      bottom: 0;
-      right: 0;
-      -webkit-transform: rotate(45deg);
-              transform: rotate(45deg);
-      -webkit-transform-origin: bottom right;
-              transform-origin: bottom right; }
-
-.title-lines-sota {
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-  padding: 27px; }
-  @media (min-width: 768px) {
-    .title-lines-sota {
-      padding: 27px 80px; } }
-  .title-lines-sota > .sota-1 {
-    position: absolute;
-    top: -10px;
-    left: -15px;
-    z-index: -1; }
-    .title-lines-sota > .sota-1 .svg {
-      position: absolute;
-      top: 0;
-      left: 0; }
-      .title-lines-sota > .sota-1 .svg:nth-child(1) {
-        left: 23px; }
-      .title-lines-sota > .sota-1 .svg:nth-child(2) {
-        top: 15px; }
-      .title-lines-sota > .sota-1 .svg:nth-child(3) {
-        top: 28px;
-        left: 23px; }
-      .title-lines-sota > .sota-1 .svg:nth-child(4) {
-        top: 45px;
-        left: 75px; }
-      .title-lines-sota > .sota-1 .svg:nth-child(5) {
-        top: 58px;
-        left: 50px; }
-    .title-lines-sota > .sota-1 svg {
-      width: 34px;
-      height: 38px; }
-      .title-lines-sota > .sota-1 svg path {
-        stroke-width: 3px;
-        stroke: #f0f0f0; }
-  .title-lines-sota > .sota-2 {
-    position: absolute;
-    top: 25px;
-    right: -10px;
-    z-index: -1; }
-    .title-lines-sota > .sota-2 .svg {
-      position: absolute;
-      top: 0;
-      right: 0; }
-      .title-lines-sota > .sota-2 .svg:nth-child(1) {
-        top: 15px;
-        right: 0; }
-      .title-lines-sota > .sota-2 .svg:nth-child(2) {
-        top: 0;
-        right: 24px; }
-      .title-lines-sota > .sota-2 .svg:nth-child(3) {
-        top: 30px;
-        right: 24px; }
-      .title-lines-sota > .sota-2 .svg:nth-child(4) {
-        top: 15px;
-        right: 48px; }
-      .title-lines-sota > .sota-2 .svg:nth-child(5) {
-        top: 0;
-        right: 72px; }
-    .title-lines-sota > .sota-2 svg {
-      width: 34px;
-      height: 38px; }
-      .title-lines-sota > .sota-2 svg path {
-        stroke-width: 3px;
-        stroke: #f0f0f0; }
-
 .title-lines-dotted {
   position: relative;
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
           align-items: center; }
   .title-lines-dotted .text {
     position: relative;
     z-index: 1;
     display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: inline-flex;
     padding: 0 20px;
-    flex-shrink: 0; }
+    -webkit-flex-shrink: 0;
+            flex-shrink: 0; }
   .title-lines-dotted .line {
     -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
             flex-grow: 1;
     height: 12px;
-    background-image: url(../../img/dotted-bg_wide.png);
-    background-position: center center;
-    background-repeat: repeat-x; }
+    background: url(../../img/dotted-bg_wide.png) repeat-x center center; }
 
 @media (min-width: 992px) {
   .line-heading {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center; } }
 
 .line-heading p {
@@ -519,6 +390,7 @@
   padding: 12px 0 12px 30px;
   line-height: 24px;
   -webkit-box-flex: 1;
+  -webkit-flex: 1;
           flex: 1; }
   @media (min-width: 992px) {
     .line-heading p {

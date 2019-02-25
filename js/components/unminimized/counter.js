@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.counter_init = {
     attach: function (context, settings) {

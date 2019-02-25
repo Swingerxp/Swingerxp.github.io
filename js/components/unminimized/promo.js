@@ -1,5 +1,6 @@
-
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.promo_init = {
     attach: function (context, settings) {
 
@@ -15,6 +16,17 @@
             cardContainer.addClass("brk-promo-crcl__cards-container_animated");
             content.addClass("brk-promo-crcl__content_animated");
             bg.addClass("brk-promo-crcl__bg_animated");
+          },
+          offset: '50%'
+        })
+
+      });
+
+      $(".brk-promo-orbit:not(.rendered)").addClass("rendered").each(function(){
+        var _this = $(this);
+        var waypoints = _this.waypoint({
+          handler: function() {
+            _this.addClass("brk-promo-orbit_animated");
           },
           offset: '50%'
         })

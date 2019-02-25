@@ -1,13 +1,12 @@
 (function ($) {
-  // =================================================================================
-  // Material Card
-  // =================================================================================
+  'use strict';
+
   Berserk.behaviors.material_card_init = {
     attach: function (context, settings) {
 
       var $mcBtnAction = $(context).parent().find('.mc-btn-action:not(.rendered)').addClass('rendered');
       if ($mcBtnAction.length) {
-        $mcBtnAction.click(function () {
+        $mcBtnAction.on('click', function () {
           var $this = $(this),
               card = $this.parent('.brk-team-mc'),
               icon = $this.children('i');

@@ -2,6 +2,7 @@
   position: relative;
   display: block;
   -webkit-box-flex: 0;
+  -webkit-flex: none;
           flex: none;
   width: 100%;
   height: 380px;

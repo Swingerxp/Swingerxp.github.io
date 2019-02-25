@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.background_particleground_init = {
     attach: function (context, settings) {
@@ -8,7 +9,6 @@
 
       if (particlesA.length || particlesB.length) {
 
-
         if (typeof $.fn.particleground === 'undefined') {
           console.log('Waiting for the particleground library');
           setTimeout(Berserk.behaviors.background_particleground_init.attach, settings.timeout_delay, context, settings);
@@ -16,18 +16,19 @@
         }
 
         particlesA.each(function () {
-          particlesA.particleground({
-            minSpeedX: 0.6,
-            minSpeedY: 0.6,
-            dotColor: 'rgba(255, 255, 255, .3)',
-            lineColor: 'rgba(255, 255, 255, .12)',
-            density: 10000,
-            particleRadius: 8,
-            parallaxMultiplier: 5.2,
-            proximity: 80
-          });
-          $(this).addClass("rendered")
-        })
+          if ($(this).length) {
+            $(this).particleground({
+              minSpeedX: 0.6,
+              minSpeedY: 0.6,
+              dotColor: 'rgba(255, 255, 255, .3)',
+              lineColor: 'rgba(255, 255, 255, .12)',
+              density: 10000,
+              particleRadius: 8,
+              parallaxMultiplier: 8,
+              proximity: 80
+            })
+          }
+        }).addClass("rendered");
 
         particlesB.each(function () {
           if ($(this).length) {
@@ -38,7 +39,7 @@
               lineColor: '#ffffff',
               density: 3000,
               particleRadius: 4,
-              parallaxMultiplier: 5.2,
+              parallaxMultiplier: 8,
               proximity: 0
             });
           }
@@ -46,7 +47,7 @@
       }
 
     }
-  }
+  };
 
   Berserk.behaviors.background_metaballs_and_dots_init = {
     attach: function (context, settings) {
@@ -65,16 +66,16 @@
             init: function (id, callback, initRes) {
               this.elem = document.getElementById(id);
               this.callback = callback || null;
-              if (this.elem.tagName == "CANVAS") this.ctx = this.elem.getContext("2d");
+              if (this.elem.tagName === "CANVAS") this.ctx = this.elem.getContext("2d");
               window.addEventListener('resize', function () {
                 this.resize();
               }.bind(this), false);
               this.elem.onselectstart = function () {
                 return false;
-              }
+              };
               this.elem.ondrag = function () {
                 return false;
-              }
+              };
               initRes && this.resize();
               return this;
             },
@@ -515,7 +516,7 @@
       // dot random moves end
 
     }
-  }
+  };
 
   Berserk.behaviors.background_skrollr_init = {
     attach: function (context, settings) {
@@ -525,12 +526,16 @@
           setTimeout(Berserk.behaviors.background_skrollr_init.attach, settings.timeout_delay, context, settings);
           return;
         }
-        $('[data-skrollr]:not(.rendered)').addClass("rendered");
-        var s = skrollr.init();
-        console.log("skrollr init")
+
+        var windowWidth = window.innerWidth || $(window).width();
+        if (windowWidth >= 992) {
+          $('[data-skrollr]:not(.rendered)').addClass("rendered");
+          var s = skrollr.init();
+          console.log("skrollr init")
+        }
       }
     }
-  }
+  };
 
   Berserk.behaviors.background_paper_init = {
     attach: function (context, settings) {
@@ -651,7 +656,7 @@
         })();
       }
     }
-  }
+  };
 
   Berserk.behaviors.background_hexagons_init = {
     attach: function (context, settings) {

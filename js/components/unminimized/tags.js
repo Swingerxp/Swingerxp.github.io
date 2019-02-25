@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.tags_bubble_init = {
     attach: function (context, settings) {

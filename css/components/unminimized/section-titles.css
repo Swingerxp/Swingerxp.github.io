@@ -110,14 +110,13 @@
 .extra__heading-3 {
   text-align: left;
   max-width: 530px;
-  padding: 112px 36px 40px 58px;
+  padding: 104px 36px 40px 47px;
   margin: 0 auto;
   border-right: 13px solid rgba(170, 170, 170, 0.1);
   border-bottom: 13px solid rgba(170, 170, 170, 0.1);
   position: relative;
   z-index: 1; }
   .extra__heading-3 p {
-    line-height: 26px;
     color: #9F9F9F; }
   .extra__heading-3:after {
     content: '';

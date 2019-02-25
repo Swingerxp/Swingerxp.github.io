@@ -65,12 +65,12 @@
     .brk-hosted-video_no-poster::before {
       display: none; }
   .brk-hosted-video_large-shadow {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15); }
   .brk-hosted-video__information {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex; }
   .brk-hosted-video__date {
-    text-transform: uppercase;
     margin-right: 14px; }
     .brk-hosted-video__date-icon {
       margin-right: 8px;
@@ -91,7 +91,8 @@
   .brk-hosted-video__about {
     width: auto;
     max-width: 50%;
-    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+            flex-shrink: 0;
     margin-right: 63px; }
   .brk-hosted-video__img {
     position: absolute;
@@ -106,9 +107,11 @@
     z-index: -1; }
   .brk-hosted-video__body {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
             flex-direction: column;
     position: absolute;
     left: 0;
@@ -119,14 +122,25 @@
     z-index: 1; }
   .brk-hosted-video__description {
     display: -webkit-box;
-    display: flex; }
+    display: -webkit-flex;
+    display: flex;
+    position: relative; }
     @media screen and (max-width: 768px) {
       .brk-hosted-video__description {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
                 flex-direction: column; } }
+    .brk-hosted-video__description .brs-post__more {
+      position: absolute;
+      bottom: 10px;
+      right: 40px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600; }
   .brk-hosted-video__information {
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex; }
   .brk-hosted-video__date-icon {
     bottom: 1px; }
@@ -147,7 +161,6 @@
     font-size: 16px !important; }
   .brk-hosted-video__video-container {
     display: none;
-    width: 75%;
     height: auto;
     padding: 0 !important; }
   .brk-hosted-video_inner video {
@@ -155,6 +168,7 @@
     left: 0;
     top: 0;
     width: 100%;
+    height: 100%;
     z-index: 99; }
   .brk-hosted-video_short::before {
     padding-top: 37%; }

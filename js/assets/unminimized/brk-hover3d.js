@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   $.fn.brk_hover3d = function (animation, animatedElements) {
     // Effects
     var effect1 = {
@@ -630,60 +632,60 @@
 
     switch (animation) {
       case 'animation1':
-        {
-          for (var i = 0; i < elms.length; i++) {
-            new TiltFx(elms[i], effect1)
-          }
-          break;
+      {
+        for (var i = 0; i < elms.length; i++) {
+          new TiltFx(elms[i], effect1)
         }
+        break;
+      }
       case 'animation2':
-        {
-          for (var i = 0; i < elms.length; i++) {
-            new TiltFx(elms[i], effect2)
-          }
-          break;
+      {
+        for (var i = 0; i < elms.length; i++) {
+          new TiltFx(elms[i], effect2)
         }
+        break;
+      }
       case 'animation3':
-        {
-          for (var i = 0; i < elms.length; i++) {
-            new TiltFx(elms[i], effect3)
-          }
-          break;
+      {
+        for (var i = 0; i < elms.length; i++) {
+          new TiltFx(elms[i], effect3)
         }
+        break;
+      }
       case 'animation4':
-        {
-          for (var i = 0; i < elms.length; i++) {
-            new TiltFx(elms[i], effect4)
-          }
-          break;
+      {
+        for (var i = 0; i < elms.length; i++) {
+          new TiltFx(elms[i], effect4)
         }
+        break;
+      }
       case 'animation5':
-        {
-          for (var i = 0; i < elms.length; i++) {
-            new TiltFx(elms[i], effect5)
-          }
-          break;
+      {
+        for (var i = 0; i < elms.length; i++) {
+          new TiltFx(elms[i], effect5)
         }
+        break;
+      }
       case 'animation6':
-        {
-          for (var i = 0; i < elms.length; i++) {
-            new TiltFx(elms[i], effect6)
-          }
-          break;
+      {
+        for (var i = 0; i < elms.length; i++) {
+          new TiltFx(elms[i], effect6)
         }
+        break;
+      }
       case 'animation7':
-        {
-          for (var i = 0; i < elms.length; i++) {
-            new TiltFx(elms[i], effect7)
-          }
-          break;
+      {
+        for (var i = 0; i < elms.length; i++) {
+          new TiltFx(elms[i], effect7)
         }
+        break;
+      }
       default:
-        {
-          for (var i = 0; i < elms.length; i++) {
-            new TiltFx(elms[i], effect1)
-          }
+      {
+        for (var i = 0; i < elms.length; i++) {
+          new TiltFx(elms[i], effect1)
         }
+      }
     }
 
     //If element has some class with animation name
@@ -712,5 +714,36 @@
       }
     }
     return this
+  };
+
+
+  Berserk.behaviors.image_caption_init = {
+    attach: function (context, settings) {
+
+      if (typeof $.fn.brk_hover3d !== 'function' || typeof anime !== 'function') {
+        console.log('Waiting for the brk_hover3d && anime library');
+        setTimeout(Berserk.behaviors.image_caption_init.attach, settings.timeout_delay, context, settings);
+        return;
+      }
+
+      var defaults = {
+        imgWrapper: '',
+        caption: ''
+      };
+
+      $(context).parent().find('[data-brk-hover3d]:not(.rendered)').addClass('rendered').each(function () {
+        var $this   = $(this),
+          params    = $this.data('brk-hover3d'),
+          animationData = $this.data('brk-hover3d-animation');
+
+        var options = $.extend({}, defaults, params),
+          animation = animationData ? animationData : 'animation2';
+
+
+        $(this).brk_hover3d(animation, options)
+      });
+
+    }
   }
+
 })(jQuery);

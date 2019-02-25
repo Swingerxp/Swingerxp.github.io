@@ -1,7 +1,5 @@
-// =================================================================================
-// Progress Bar
-// =================================================================================
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.progressbar_init = {
     attach: function (context, settings) {

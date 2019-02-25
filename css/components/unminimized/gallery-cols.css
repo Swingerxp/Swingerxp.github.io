@@ -239,10 +239,13 @@
 .brk-filters_style-3 .brk-filters__item {
   position: relative;
   display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
           align-items: center;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
           justify-content: center;
   margin-right: 10px;
   margin-top: 10px;

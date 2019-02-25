@@ -101,7 +101,7 @@
       .icon__wrapper-linear .icon__wrapper svg path, .icon__wrapper-linear .icon__wrapper svg line, .icon__wrapper-linear .icon__wrapper svg polyline {
         stroke: var(--brand-primary); }
     .icon__wrapper-linear .icon__wrapper p {
-      color: #9F9F9F;
+      color: #4e4e4e;
       margin-top: 21px; }
     .icon__wrapper-linear .icon__wrapper:hover, .icon__wrapper-linear .icon__wrapper.current {
       background: #FCFDFF; }
@@ -122,8 +122,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: -webkit-gradient(linear, left bottom, left top, from(var(--brk-base-6)), to(var(--brk-base-5)));
-    background: linear-gradient(to top, var(--brk-base-6), var(--brk-base-5));
+    background: -webkit-gradient(linear, left bottom, left top, from(var(--brand-primary)), to(var(--brk-base-2)));
+    background: linear-gradient(to top, var(--brand-primary), var(--brk-base-2));
     -webkit-transition: all .4s ease;
     transition: all .4s ease;
     z-index: -1; }
@@ -144,15 +144,18 @@
   .icon__wrapper-overlay .icon__wrapper .svg-wrap {
     width: 170px;
     height: 170px;
-    margin-top: -85px;
+    margin-top: -115px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
             justify-content: center;
     -webkit-box-align: center;
+    -webkit-align-items: center;
             align-items: center;
     background: #fff;
     border: 2px solid rgba(var(--brand-primary-rgb), 0.15);
@@ -165,8 +168,8 @@
       right: 0;
       bottom: 0;
       border-radius: 50%;
-      background: -webkit-gradient(linear, left bottom, left top, from(var(--brk-base-6)), to(var(--brk-base-5)));
-      background: linear-gradient(to top, var(--brk-base-6), var(--brk-base-5));
+      background: -webkit-gradient(linear, left bottom, left top, from(var(--brand-primary)), to(var(--brk-base-5)));
+      background: linear-gradient(to top, var(--brand-primary), var(--brk-base-5));
       z-index: -1;
       -webkit-transition: all .4s ease;
       transition: all .4s ease;
@@ -199,12 +202,18 @@
       left: 0;
       right: 0;
       bottom: 0; }
-  .icon__wrapper-overlay .icon__wrapper:hover .btn-inside-out:hover > span, .icon__wrapper-overlay .icon__wrapper.current .btn-inside-out:hover > span {
-    color: #fff; }
-  .icon__wrapper-overlay .icon__wrapper:hover .btn-inside-out:before, .icon__wrapper-overlay .icon__wrapper:hover .btn-inside-out:after, .icon__wrapper-overlay .icon__wrapper.current .btn-inside-out:before, .icon__wrapper-overlay .icon__wrapper.current .btn-inside-out:after {
-    -webkit-transition: all .4s ease;
-    transition: all .4s ease;
-    background: rgba(var(--brand-primary-rgb), 0.7); }
+  .icon__wrapper-overlay .icon__wrapper:hover .btn-inside-out, .icon__wrapper-overlay .icon__wrapper.current .btn-inside-out {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); }
+    .icon__wrapper-overlay .icon__wrapper:hover .btn-inside-out .before,
+    .icon__wrapper-overlay .icon__wrapper:hover .btn-inside-out .after, .icon__wrapper-overlay .icon__wrapper.current .btn-inside-out .before,
+    .icon__wrapper-overlay .icon__wrapper.current .btn-inside-out .after {
+      background-color: var(--brk-base-6); }
+    .icon__wrapper-overlay .icon__wrapper:hover .btn-inside-out:hover > span, .icon__wrapper-overlay .icon__wrapper.current .btn-inside-out:hover > span {
+      color: #fff; }
+    .icon__wrapper-overlay .icon__wrapper:hover .btn-inside-out:before, .icon__wrapper-overlay .icon__wrapper:hover .btn-inside-out:after, .icon__wrapper-overlay .icon__wrapper.current .btn-inside-out:before, .icon__wrapper-overlay .icon__wrapper.current .btn-inside-out:after {
+      -webkit-transition: all .4s ease;
+      transition: all .4s ease;
+      background: rgba(var(--brand-primary-rgb), 0.7); }
 
 .icon__wrapper-arrow {
   box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.12); }
@@ -431,10 +440,13 @@
       font-size: 16px;
       color: #fff;
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-pack: center;
+      -webkit-justify-content: center;
               justify-content: center;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center;
       position: absolute;
       bottom: -23px;

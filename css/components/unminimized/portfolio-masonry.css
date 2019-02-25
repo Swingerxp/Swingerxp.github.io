@@ -4,11 +4,10 @@
   background-color: #ffffff; }
   @media screen and (max-width: 991px) {
     .brk-filters_style-2 {
-      flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+              flex-wrap: wrap;
       -webkit-transform: translateY(-15px);
-              transform: translateY(-15px);
-      width: -webkit-calc(100% - 30px);
-      width: calc(100% - 30px); } }
+              transform: translateY(-15px); } }
   @media screen and (min-width: 992px) {
     .brk-filters_style-2 {
       -webkit-transform: translateY(-50%);
@@ -35,6 +34,7 @@
     @media screen and (max-width: 991px) {
       .brk-filters_style-2 .brk-filters__item {
         -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
                 flex-grow: 1;
         min-width: 50%;
         text-align: center; } }
@@ -61,36 +61,48 @@
     padding-top: 100%; }
   .brk-grid__item_height-2:after {
     padding-top: 200%; }
+  .brk-grid__item_height-370 {
+    height: 370px; }
   .brk-grid .post-filmstrip {
     max-width: none;
     max-height: none;
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%; }
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    width: auto;
+    height: auto;
+    min-height: 1px; }
     .brk-grid .post-filmstrip::after {
       content: "";
       display: block;
       padding-top: 100%; }
     .brk-grid .post-filmstrip__content {
       display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
               flex-direction: column;
       -webkit-box-align: center;
+      -webkit-align-items: center;
               align-items: center;
       -webkit-box-pack: center;
+      -webkit-justify-content: center;
               justify-content: center; }
       .brk-grid .post-filmstrip__content h3 {
         margin-top: 0; }
   .brk-grid .brk-hosted-video {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%; }
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    width: auto;
+    height: auto;
+    min-height: 1px; }
   .brk-grid .brk-hosted-video__img {
     z-index: 0; }
 

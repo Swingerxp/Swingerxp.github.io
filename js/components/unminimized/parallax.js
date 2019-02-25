@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.parallax_init = {
     attach: function (context, settings) {
       if (typeof paraxify !== 'function') {
@@ -6,8 +8,10 @@
         setTimeout(Berserk.behaviors.parallax_init.attach, settings.timeout_delay, context, settings);
         return;
       }
-      paraxify(".parallax-bg:not(.rendered)");
-      $('.parallax-bg:not(.rendered)').addClass("rendered");
+
+      $(window).on('load', function () {
+        var myParaxify = paraxify('.brk-paraxify');
+      });
 
       var scroll_show = $(".scroll-show:not(.rendered)", context).addClass("rendered");
       if (scroll_show.length) {

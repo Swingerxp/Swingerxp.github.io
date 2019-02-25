@@ -1,12 +1,13 @@
-'use strict';
 // =================================================================================
 // Countdown
 // =================================================================================
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.countodwn_init = {
     attach: function (context, settings) {
 
-      if (typeof $.fn.countdown == 'undefined') {
+      if (typeof $.fn.countdown === 'undefined') {
         console.log('Waiting for the countdown library');
         setTimeout(Berserk.behaviors.countodwn_init.attach, settings.timeout_delay, context, settings);
         return;

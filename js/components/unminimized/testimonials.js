@@ -1,10 +1,11 @@
 (function($) {
+  'use strict';
 
   Berserk.behaviors.testimonials_sliders_init = {
     attach: function (context, settings) {
 
       // If element is lazyloaded but library still loading, then wait a little
-      if (typeof Swiper == 'undefined') {
+      if (typeof Swiper === 'undefined') {
         console.log('Waiting for the swiper library');
         setTimeout(Berserk.behaviors.testimonials_sliders_init.attach, settings.timeout_delay, context, settings);
         return;

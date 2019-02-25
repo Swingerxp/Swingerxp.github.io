@@ -413,13 +413,13 @@
             });
 
             //inizialize the first info window
-            if (mapSection.find(infoWindow).length) {
-              mapSection.find(infoWindow).css('display', 'none');
-              var contentString = mapSection.find(infoWindow).html();
-              var firstInfoWindow = new google.maps.InfoWindow({
+            if (infoWindow !== undefined && infoWindow !== '') {
+              var contentString = String(infoWindow),
+                firstInfoWindow = new google.maps.InfoWindow({
                 content: contentString,
                 maxWidth: 220
               });
+
               google.maps.event.addListener(marker, "click", function () {
                 firstInfoWindow.open(map, marker);
               });
@@ -446,7 +446,7 @@
                 var lat = results[0].geometry.location.lat(),
                   lng = results[0].geometry.location.lng();
 
-                if (status == 'OK') {
+                if (status === 'OK') {
                   // map init
                   mapInit(lat, lng);
                 } else {

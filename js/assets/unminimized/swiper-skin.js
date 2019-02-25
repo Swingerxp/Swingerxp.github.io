@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.swiper_slider_init = {
     attach: function (context, settings) {
@@ -64,19 +65,19 @@
 
             var $progressBar = $('<span class="swiper-progress__bar"></span>');
 
-          function updateProgress() {
+          var updateProgress = function () {
             filmstrip.pagination.bullets.each(function (i) {
               if ($(this).hasClass('swiper-pagination-bullet-active')) {
                 $progressBar.css('transform', 'translate3d(' + ($(this).width() / 2 + $(this).offset().left - ($(window).width() / 2)) + 'px, 0px, 0px)');
               }
             });
-          }
+          };
 
-          function updateBulletsSize(filmstrip) {
+          var updateBulletsSize = function (filmstrip) {
             filmstrip.$el.find('.swiper-pagination > .swiper-pagination-bullet').each(function () {
               $(this).width(100 / j + '%');
             });
-          }
+          };
 
             window.addEventListener('load', function () {
               setTimeout(function () {
@@ -127,10 +128,10 @@
               }
             });
 
-            window.addEventListener('load', function () {
+            $(window).on('load', function () {
               setTimeout(function () {
                 filmstripScroll.init()
-              }, 300)
+              }, 350)
             });
 
             break;
@@ -218,8 +219,11 @@
             }
           }
         });
-        window.addEventListener("load", function (event) {
-          colored.init()
+
+        $(window).on('load', function () {
+          setTimeout(function () {
+            colored.init()
+          }, 350)
         });
       });
 
@@ -241,7 +245,9 @@
           },
         });
         $(document).ready(function () {
-          dashOneSlider.init()
+          setTimeout(function () {
+            dashOneSlider.init()
+          }, 300)
         });
       });
 
@@ -704,6 +710,69 @@
         })
       });
 
+      // Thumbnailed full
+      $(context).parent().find('.slider-thumbnailed-full:not(.rendered)').addClass('rendered').each(function () {
+        var $this           = $(this),
+          $slider_thumb_for = $this.find('.slider-thumbnailed-full-for'),
+          $slider_thumb_nav = $this.find('.slider-thumbnailed-full-nav'),
+          prev              = $this.find('.slider-thumbnailed-full-prev'),
+          next              = $this.find('.slider-thumbnailed-full-next'),
+          paramsFor         = $slider_thumb_for.data('brk-swiper') ? $slider_thumb_for.data('brk-swiper') : {},
+          paramsNav         = $slider_thumb_nav.data('brk-swiper') ? $slider_thumb_nav.data('brk-swiper') : {};
+
+        var defaultsNav = {
+          init: false,
+          spaceBetween: 6,
+          slidesPerView: 5,
+          loop: true,
+          centeredSlides: true,
+          loopedSlides: 5, //looped slides should be the same
+          watchSlidesVisibility: true,
+          watchSlidesProgress: true,
+          breakpoints: {
+            576: {
+              slidesPerView: 3,
+            },
+            768: {
+              slidesPerView: 4,
+            },
+            992: {
+              slidesPerView: 3,
+            }
+          }
+        },
+          optionsNav = $.extend({}, defaultsNav, paramsNav);
+
+        var galleryNav = new Swiper($slider_thumb_nav.find('.swiper-container'), optionsNav);
+
+        var defaultsFor = {
+          init: false,
+          spaceBetween: 0,
+          loop:true,
+          speed: 800,
+          effect: 'fade',
+          loopedSlides: 5, //looped slides should be the same
+          navigation: {
+            nextEl: next,
+            prevEl: prev,
+          },
+          thumbs: {
+            swiper: galleryNav,
+          },
+          preloadImages: false,
+          lazy: {
+            loadPrevNext: true
+          }
+        },
+          optionsFor = $.extend({}, defaultsFor, paramsFor);
+
+        var galleryFor = new Swiper($slider_thumb_for, optionsFor);
+
+        window.addEventListener('load', function () {
+          galleryNav.init();
+          galleryFor.init();
+        })
+      })
     }
   }
 

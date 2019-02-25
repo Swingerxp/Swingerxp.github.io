@@ -1,4 +1,6 @@
 (function($){
+  'use strict';
+
 	Berserk.behaviors.sc_grid_filter = {
 		attach: function (context, settings) {
 
@@ -13,7 +15,7 @@
 				$element.addClass('gf-index_' + i);
 
 				// init Isotope
-        window.addEventListener('load', function () {
+        $(window).on('load', function () {
           setTimeout(function () {
             $grid.isotope({
               itemSelector: '.gf-index_' + i,
@@ -40,6 +42,21 @@
 					});
 				});
 
+				// Item Cell
+        var cellButtom = function () {
+          var $cells = $this.find('.brk-shop-grid-filter-cells');
+          $cells.each(function () {
+            var $this       = $(this),
+              cellContent = $this.find('.brk-shop-grid-filter-cells__content'),
+              cellHeader  = $this.find('.brk-shop-grid-filter-cells__header').outerHeight() + 30;
+
+            cellContent.attr('style', 'bottom: calc(-100% + ' + cellHeader + 'px)');
+          })
+        };
+
+        $grid.on('layoutComplete', function( event, laidOutItems ) {
+          cellButtom();
+        });
 			});
 
 		}

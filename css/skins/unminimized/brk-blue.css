@@ -19,7 +19,7 @@
   --brk-secondary-4: #6e50c2;
   --brk-secondary-5: #6377DF;
   --brk-secondary-6: #b50aff;
-  --text-base-color-1: #c4c4c4;
+  --text-base-color-1: #8a8a8a;
   --text-base-color-2: #0F5AE0;
   --text-base-color-3: #f3f3f3;
   --form-color-1: #e8ecff;
@@ -42,10 +42,15 @@
   --brk-secondary-4-rgb: 110, 80, 194;
   --brk-secondary-5-rgb: 99, 119, 223;
   --brk-secondary-6-rgb: 181, 10, 255;
-  --text-base-color-1-rgb: 196, 196, 196;
+  --text-base-color-1-rgb: 138, 138, 138;
   --text-base-color-2-rgb: 15, 90, 224;
   --text-base-color-3-rgb: 243, 243, 243;
   --form-color-1-rgb: 232, 236, 255;
   --b-radius: inherit; }
 
 /* ----------- Palette variable ----------- */
+/* ------------ Customs styles ------------ */
+.brk-pricing-light__stick span {
+  background-color: #68dcfe !important; }
+
+/* ----------- /Customs styles ------------ */

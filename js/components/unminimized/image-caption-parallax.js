@@ -1,4 +1,6 @@
 (function ($) {
+  'use strict';
+
   Berserk.behaviors.image_caption_init = {
     attach: function (context, settings) {   
 
@@ -8,14 +10,14 @@
         return;
       }
 
-      $(context).parent().find('.brk-tilter:not(.rendered)').each(function () {        
+      $(context).parent().find('.brk-tilter:not(.rendered)').addClass('rendered').each(function () {
         $(this).brk_hover3d('animation4', {
           imgWrapper: ".brk-tilter__figure",
           lines: ".brk-tilter__deco--lines",
-          caption: ".brk-tilter__caption ",
+          caption: ".brk-tilter__caption",
           overlay: ".brk-tilter__deco--overlay"
         })
-      }).addClass('rendered');
+      });
     }
   }
 })(jQuery);

@@ -11,10 +11,10 @@
 
   brk_lazyload();
 
-  $('body').bind("DOMNodeInserted", function() {
+  //$('body').bind("DOMNodeInserted", function() {
     // Add lazy event for our elements
     //brk_lazyload();
-  });
+  //});
 
   addEventListener('lazybeforeunveil', function(e){
     var library = e.target.getAttribute('data-brk-library');

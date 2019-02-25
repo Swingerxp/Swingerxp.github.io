@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   Berserk.behaviors.tiles_angle_init = {
     attach: function (context, settings) {
@@ -19,27 +20,28 @@
               $angleTopObj    = $this.find(angleTop),
               $angleBottomObj = $this.find(angleBottom);
 
-          $angleTopObj.hover(
-            function () {
+          $angleTopObj.on({
+            mouseenter: function () {
               $(this).siblings(angleBottom).addClass('no-active');
               $(this).siblings(loading).addClass('top-active');
             },
-            function () {
+            mouseleave: function () {
               $(this).siblings(angleBottom).removeClass('no-active');
               $(this).siblings(loading).removeClass('top-active');
             }
-          );
+          });
 
-          $angleBottomObj.hover(
-            function () {
+          $angleBottomObj.on({
+            mouseenter: function () {
               $(this).siblings(angleTop).addClass('no-active');
               $(this).siblings(loading).addClass('bottom-active');
             },
-            function () {
+            mouseleave: function () {
               $(this).siblings(angleTop).removeClass('no-active');
               $(this).siblings(loading).removeClass('bottom-active');
             }
-          );
+          });
+
         })
       }
     }

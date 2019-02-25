@@ -3,7 +3,8 @@
 * ================ */
 [class*="list-inline"] a {
   -webkit-transition: none;
-  transition: none; }
+  transition: none;
+  text-decoration: none !important; }
 
 .list-inline-1 {
   counter-reset: li; }
@@ -49,10 +50,13 @@
                 transform: translateY(-50%);
         left: 8px;
         display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
         -webkit-box-pack: center;
+        -webkit-justify-content: center;
                 justify-content: center;
         -webkit-box-align: center;
+        -webkit-align-items: center;
                 align-items: center; }
         .list-inline-1 > li.list-counter > .before:before {
           content: counter(li);
@@ -389,3 +393,22 @@
 
 .list-check_tiny li + li {
   margin-top: 0; }
+
+.list-angle li {
+  position: relative;
+  padding-left: 21px; }
+  .list-angle li::before, .list-angle li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 1px;
+    width: 5px;
+    background-color: var(--brand-primary); }
+  .list-angle li::before {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    top: 12px; }
+  .list-angle li::after {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    top: 15px; }
